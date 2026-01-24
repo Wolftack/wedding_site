@@ -1,1 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Luba & Tackin</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="navwrap">
+      <a class="logo" href="index.html">Luba and Tackin</a>
+      <nav class="nav">
+        <a href="schedule.html">Schedule</a>
+        <a href="travel.html">Travel</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="registry.html">Registry</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="hero">
+      <h1>We’re getting married</h1>
+      <p>Welcome! Use the tabs above for schedule, travel details, FAQs, RSVP, and registry.</p>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Quick info</h2>
+        <p><strong>Date:</strong> (add date)</p>
+        <p><strong>Location:</strong> (add location)</p>
+        <p><strong>Dress code:</strong> (optional)</p>
+      </section>
+
+      <section class="card">
+        <h2>Photo</h2>
+        <img class="photo" src="assets/images/hero.jpg" alt="Photo">
+        <p style="margin-top:10px;">Replace <code>assets/images/hero.jpg</code> with your image.</p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // highlight active tab
+    const here = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav a').forEach(a => {
+      if (a.getAttribute('href') === here) a.classList.add('active');
+    });
+  </script>
+</body>
+</html>
 
