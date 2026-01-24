@@ -1,82 +1,85 @@
-/* =========================
-   RSVP PAGE ONLY
-   ========================= */
-
 :root{
   --cream: #e7dfd2;
   --burgundy: #7b0015;
   --line: rgba(255,255,255,.55);
 }
 
-/* Page background */
-body{
+body.rsvp-theme{
   background: var(--burgundy);
   color: #fff;
 }
 
-/* Keep existing topbar intact */
-.topbar{
+/* keep header consistent */
+.rsvp-theme .topbar{
   background: var(--cream);
+  border-bottom: 1px solid rgba(123,0,21,.18);
 }
 
-/* RSVP layout */
+/* page layout */
 .rsvp-wrap{
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 64px 20px 96px;
+  padding: 70px 20px 110px;
 }
 
 .rsvp-title{
   font-family: Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 64px;
-  margin-bottom: 12px;
+  font-size: 72px;
+  margin: 0 0 14px 0;
 }
 
 .rsvp-sub{
   font-family: Georgia, serif;
   font-style: italic;
-  font-size: 26px;
-  color: rgba(255,255,255,.85);
-  max-width: 720px;
-  margin-bottom: 28px;
+  font-size: 28px;
+  line-height: 1.35;
+  color: rgba(255,255,255,.88);
+  max-width: 760px;
+  margin: 0;
 }
 
-/* Divider like other pages */
 .rsvp-divider{
-  height: 1px;
+  height: 2px;
   background: var(--line);
-  margin: 28px 0;
+  border: 0;
+  margin: 28px 0 34px;
 }
 
-/* Form */
+/* form */
 .rsvp-panel{
-  max-width: 680px;
+  max-width: 720px;
 }
 
 .rsvp-field{
   width: 100%;
-  padding: 14px 16px;
+  padding: 16px 18px;
   font-size: 18px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid rgba(255,255,255,.35);
-  background: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.10);
   color: #fff;
+  outline: none;
 }
 
 .rsvp-field::placeholder{
   color: rgba(255,255,255,.6);
 }
 
+.rsvp-field:focus{
+  border-color: rgba(255,255,255,.65);
+  background: rgba(255,255,255,.14);
+}
+
 .rsvp-btn{
   margin-top: 14px;
   width: 100%;
-  padding: 14px;
+  padding: 16px;
   font-size: 18px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid rgba(255,255,255,.35);
-  background: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.20);
   color: #fff;
   cursor: pointer;
 }
@@ -89,17 +92,22 @@ body{
   margin-top: 12px;
   color: #ffd7d7;
   display: none;
+  font-family: Georgia, serif;
+  font-size: 18px;
 }
 
+/* iframe */
 .rsvp-frame{
   width: 100%;
-  height: 1600px;
+  height: 1700px;
   border: 0;
-  margin-top: 32px;
+  display: block;
 }
 
-/* Mobile */
+/* mobile */
 @media (max-width: 900px){
-  .rsvp-title{ font-size: 46px; }
+  .rsvp-wrap{ padding: 44px 18px 80px; }
+  .rsvp-title{ font-size: 48px; }
   .rsvp-sub{ font-size: 22px; }
+  .rsvp-frame{ height: 1850px; }
 }
