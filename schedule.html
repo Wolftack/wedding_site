@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Schedule • Luba & Tackin</title>
 
-  <link rel="stylesheet" href="assets/style.css">
-  <link rel="stylesheet" href="assets/schedule.css">
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/schedule.css" />
 </head>
 
 <body class="schedule-theme">
@@ -14,7 +14,7 @@
     <div class="navwrap">
       <a class="logo" href="index.html">Luba &amp; Tackin</a>
       <nav class="nav">
-        <a href="schedule.html">Schedule</a>
+        <a href="index.html">Schedule</a>
         <a href="travel.html">Travel</a>
         <a href="faqs.html">FAQs</a>
         <a href="rsvp.html">RSVP</a>
@@ -23,73 +23,116 @@
     </div>
   </div>
 
-  <!-- HERO (photo top-left + intro text) -->
-  <header class="sched-hero">
+  <!-- HERO (matches your “3rd photo” layout) -->
+  <section class="sched-hero">
     <div class="sched-hero-inner">
-      <div class="sched-hero-photo">
-        <img src="assets/images/schedule_hero.png" alt="Luba & Tackin">
+      <div class="sched-hero-left">
+        <h1 class="sched-title">Luba &amp;<br/>Tackin</h1>
       </div>
 
-      <div class="sched-hero-copy">
-        <h1>Schedule</h1>
-        <p>
-          All wedding events will take place at Château Hotel Grand Barrail<br>
-          in Saint-Émilion
+      <div class="sched-hero-right">
+        <!-- Put your image here: assets/images/couple.jpg -->
+        <img class="sched-hero-photo" src="assets/images/couple.jpg" alt="Luba and Tackin" />
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO BAR -->
+  <section class="sched-intro">
+    <div class="sched-intro-inner">
+      <div class="sched-intro-left">
+        <h2 class="sched-h2">Schedule</h2>
+      </div>
+
+      <div class="sched-intro-right">
+        <p class="sched-lead">
+          All wedding events will take place at Ch&acirc;teau Hotel Grand Barrail in Saint-&Eacute;milion.
         </p>
-        <p class="sched-linkline">
-          See <a href="travel.html">here</a> for more info.
+        <p class="sched-lead">
+          See <a class="sched-link" href="travel.html">here</a> for more info.
         </p>
       </div>
     </div>
-  </header>
-
-  <!-- Floral divider section you scroll to -->
-  <section class="sched-divider">
-    <img src="assets/images/floral-divider.jpg" alt="" aria-hidden="true">
   </section>
 
-  <!-- Schedule content -->
-  <main class="sched-wrap">
-    <section class="day">
-      <div class="day-left">
-        <h2>Friday, September 4</h2>
-        <p class="dress">Dress code: Cocktail<br>attire</p>
-      </div>
-      <div class="day-right">
-        <p class="event"><strong>Cocktail hour</strong> – 6:00pm</p>
-        <p class="event"><strong>Dinner</strong> – 7:00pm</p>
-      </div>
-    </section>
+  <!-- FLORAL DIVIDER (integrated; not a pasted “content image”) -->
+  <div class="sched-divider" aria-hidden="true"></div>
 
-    <section class="day">
-      <div class="day-left">
-        <h2>Saturday, September 5</h2>
-        <p class="dress">Dress code: Colorful<br>formal attire</p>
-      </div>
-      <div class="day-right">
-        <p class="event"><strong>Ceremony</strong> – 4:30pm</p>
-        <p class="event"><strong>Cocktail hour</strong> – 5:30pm</p>
-        <p class="event"><strong>Dinner and Reception</strong> – 7:00pm</p>
-      </div>
-    </section>
+  <!-- EVENTS -->
+  <main class="sched-body">
+    <div class="sched-body-inner">
 
-    <section class="day">
-      <div class="day-left">
-        <h2>Sunday, September 6</h2>
-        <p class="dress">Dress code: Casual<br>chic</p>
-      </div>
-      <div class="day-right">
-        <p class="event"><strong>Brunch</strong> – 11:00am</p>
-      </div>
-    </section>
+      <!-- Friday -->
+      <section class="sched-row">
+        <div class="sched-date">
+          <h3>Friday, September 4</h3>
+          <p class="sched-sub">Dress code: Cocktail attire</p>
+        </div>
+
+        <div class="sched-events">
+          <div class="sched-event">
+            <div class="sched-event-title">Cocktail hour</div>
+            <div class="sched-event-time">6:00pm</div>
+          </div>
+          <div class="sched-event">
+            <div class="sched-event-title">Dinner</div>
+            <div class="sched-event-time">7:00pm</div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="sched-rule" />
+
+      <!-- Saturday -->
+      <section class="sched-row">
+        <div class="sched-date">
+          <h3>Saturday, September 5</h3>
+          <p class="sched-sub">Dress code: Colorful formal attire</p>
+        </div>
+
+        <div class="sched-events">
+          <div class="sched-event">
+            <div class="sched-event-title">Ceremony</div>
+            <div class="sched-event-time">4:30pm</div>
+          </div>
+          <div class="sched-event">
+            <div class="sched-event-title">Cocktail hour</div>
+            <div class="sched-event-time">5:30pm</div>
+          </div>
+          <div class="sched-event">
+            <div class="sched-event-title">Dinner and Reception</div>
+            <div class="sched-event-time">7:00pm</div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="sched-rule" />
+
+      <!-- Sunday -->
+      <section class="sched-row">
+        <div class="sched-date">
+          <h3>Sunday, September 6</h3>
+          <p class="sched-sub">Dress code: Casual chic</p>
+        </div>
+
+        <div class="sched-events">
+          <div class="sched-event">
+            <div class="sched-event-title">Brunch</div>
+            <div class="sched-event-time">11:00am</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
   </main>
 
   <script>
-    // highlight active tab
+    // active nav underline
     (function () {
       const here = location.pathname.split('/').pop() || 'index.html';
       document.querySelectorAll('.nav a').forEach(a => {
-        if (a.getAttribute('href') === here) a.classList.add('active');
+        const href = a.getAttribute('href');
+        if (href === here) a.classList.add('active');
       });
     })();
   </script>
