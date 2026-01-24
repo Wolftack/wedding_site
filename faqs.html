@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Schedule • Luba & Tackin</title>
+  <title>FAQs • Luba & Tackin</title>
+
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/faqs.css">
 </head>
-<body>
+
+<body class="faqs-theme">
   <div class="topbar">
     <div class="navwrap">
-      <a class="logo" href="index.html">Luba and Tackin</a>
+      <a class="logo" href="index.html">Luba &amp; Tackin</a>
       <nav class="nav">
         <a href="schedule.html">Schedule</a>
         <a href="travel.html">Travel</a>
@@ -20,21 +23,53 @@
     </div>
   </div>
 
-  <div class="container">
-    <section class="card">
-      <h1>Schedule</h1>
-      <p>Add your schedule here.</p>
-      <p><strong>Welcome dinner:</strong> …</p>
-      <p><strong>Ceremony:</strong> …</p>
-      <p><strong>Reception:</strong> …</p>
-    </section>
-  </div>
+  <main class="faqs-wrap">
+    <div class="faqs-grid">
+      <h1 class="faqs-title">FAQs</h1>
+
+      <div>
+        <section class="faq">
+          <h2 class="faq-q">What is the dress code for your wedding?</h2>
+          <p class="faq-a">
+            Friday, September 4 — Our welcome day dress code will be cocktail attire.<br><br>
+            Saturday, September 5 — Our wedding day will be colorful formal. Think bold &amp; vibrant colors,
+            interesting patterns, and creative outfits!<br><br>
+            Sunday, September 6 — Farewell brunch is casual chic attire.
+          </p>
+        </section>
+
+        <section class="faq">
+          <h2 class="faq-q">Are children welcome?</h2>
+          <p class="faq-a">This will be an adults-only celebration.</p>
+        </section>
+
+        <section class="faq">
+          <h2 class="faq-q">Will there be vegan/vegetarian/gluten-free food options?</h2>
+          <p class="faq-a">
+            Yes of course. When you RSVP there will be space to indicate your dietary restrictions.
+            Please also feel free to reach out to Luba and Tackin directly so we can plan accordingly.
+          </p>
+        </section>
+
+        <section class="faq">
+          <h2 class="faq-q">Will transportation to the wedding venue be provided?</h2>
+          <p class="faq-a">
+            Yes, we will have transportation arranged for guests from center of Saint-Émilion to our wedding venue.
+            Exact location for pick up will be shared closer to the wedding.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
 
   <script>
-    const here = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav a').forEach(a => {
-      if (a.getAttribute('href') === here) a.classList.add('active');
-    });
+    // highlight active tab
+    (function () {
+      const here = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav a').forEach(a => {
+        if (a.getAttribute('href') === here) a.classList.add('active');
+      });
+    })();
   </script>
 </body>
 </html>
