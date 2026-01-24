@@ -9,7 +9,7 @@ body.faqs-theme{
   color: #fff;
 }
 
-/* Header theme (cream bar + burgundy text) */
+/* Header theme */
 .faqs-theme .topbar{
   background: var(--cream);
   border-bottom: 1px solid rgba(123,0,21,.18);
@@ -36,7 +36,7 @@ body.faqs-theme{
   text-decoration-thickness: 2px;
 }
 
-/* Page layout */
+/* Layout */
 .faqs-wrap{
   max-width: 1200px;
   margin: 0 auto;
@@ -45,7 +45,7 @@ body.faqs-theme{
 
 .faqs-grid{
   display: grid;
-  grid-template-columns: 1fr 1.55fr; /* big left whitespace + right content */
+  grid-template-columns: 1fr 1.55fr;
   gap: 110px;
   align-items: start;
 }
@@ -57,37 +57,33 @@ body.faqs-theme{
   font-weight: 500;
   font-size: 86px;
   line-height: 1.05;
-  color: #fff;
+  color: rgba(255,255,255,.96);
 }
 
-/* FAQ blocks */
+/* Blocks */
 .faq{
   padding: 0 0 34px 0;
   border-bottom: 2px solid var(--rule);
   margin-bottom: 34px;
 }
 
-.faq:last-child{
-  border-bottom: 2px solid var(--rule);
-  margin-bottom: 0;
-}
-
-.faq-q{
+/* FORCE typography to override base style.css */
+.faqs-theme .faq-q{
   margin: 0 0 16px 0;
-  font-family: Georgia, serif;
+  font-family: Georgia, serif !important;
   font-style: italic;
   font-weight: 500;
   font-size: 46px;
   line-height: 1.2;
-  color: rgba(255,255,255,.95);
+  color: rgba(255,255,255,.95) !important;
 }
 
-.faq-a{
+.faqs-theme .faq-a{
   margin: 0;
-  font-family: Georgia, serif;
+  font-family: Georgia, serif !important;
   font-size: 30px;
   line-height: 1.45;
-  color: rgba(255,255,255,.92);
+  color: rgba(255,255,255,.92) !important;
 }
 
 /* Responsive */
@@ -97,6 +93,6 @@ body.faqs-theme{
     gap: 22px;
   }
   .faqs-title{ font-size: 60px; }
-  .faq-q{ font-size: 34px; }
-  .faq-a{ font-size: 24px; }
+  .faqs-theme .faq-q{ font-size: 34px; }
+  .faqs-theme .faq-a{ font-size: 24px; }
 }
