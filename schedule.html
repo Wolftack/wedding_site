@@ -4,12 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Schedule • Luba & Tackin</title>
+
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/schedule.css">
 </head>
-<body>
+
+<body class="schedule-theme">
   <div class="topbar">
     <div class="navwrap">
-      <a class="logo" href="index.html">Luba and Tackin</a>
+      <a class="logo" href="index.html">Luba &amp; Tackin</a>
       <nav class="nav">
         <a href="schedule.html">Schedule</a>
         <a href="travel.html">Travel</a>
@@ -20,22 +23,72 @@
     </div>
   </div>
 
-  <div class="container">
-    <section class="card">
-      <h1>Schedule</h1>
-      <p>Add your schedule here.</p>
-      <p><strong>Welcome dinner:</strong> …</p>
-      <p><strong>Ceremony:</strong> …</p>
-      <p><strong>Reception:</strong> …</p>
+  <main class="schedule-wrap">
+    <!-- Intro -->
+    <section class="schedule-intro">
+      <h1 class="schedule-title">Schedule</h1>
+
+      <div class="schedule-intro-copy">
+        <p style="margin:0 0 14px 0;">
+          All wedding events will take place at Château Hotel Grand Barrail<br>
+          in Saint-Émilion
+        </p>
+        <p style="margin:0;">
+          See <a href="travel.html">here</a> for more info.
+        </p>
+      </div>
     </section>
-  </div>
+
+    <hr class="schedule-rule">
+
+    <!-- Friday -->
+    <section class="day">
+      <div class="day-left">
+        <h2>Friday, September 4</h2>
+        <p class="dress">Dress code: Cocktail<br>attire</p>
+      </div>
+
+      <div class="day-right">
+        <p class="event"><strong>Cocktail hour</strong> – 6:00pm</p>
+        <p class="event"><strong>Dinner</strong> – 7:00pm</p>
+      </div>
+    </section>
+
+    <!-- Saturday -->
+    <section class="day">
+      <div class="day-left">
+        <h2>Saturday, September 5</h2>
+        <p class="dress">Dress code: Colorful<br>formal attire</p>
+      </div>
+
+      <div class="day-right">
+        <p class="event"><strong>Ceremony</strong> – 4:30pm</p>
+        <p class="event"><strong>Cocktail hour</strong> – 5:30pm</p>
+        <p class="event"><strong>Dinner and Reception</strong> – 7:00pm</p>
+      </div>
+    </section>
+
+    <!-- Sunday -->
+    <section class="day">
+      <div class="day-left">
+        <h2>Sunday, September 6</h2>
+        <p class="dress">Dress code: Casual<br>chic</p>
+      </div>
+
+      <div class="day-right">
+        <p class="event"><strong>Brunch</strong> – 11:00am</p>
+      </div>
+    </section>
+  </main>
 
   <script>
-    const here = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav a').forEach(a => {
-      if (a.getAttribute('href') === here) a.classList.add('active');
-    });
+    // highlight active tab
+    (function () {
+      const here = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav a').forEach(a => {
+        if (a.getAttribute('href') === here) a.classList.add('active');
+      });
+    })();
   </script>
 </body>
 </html>
-
