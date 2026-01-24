@@ -1,1 +1,73 @@
+<div id="rsvpStep1" style="max-width:520px;margin:0 auto;">
+  <h2 style="margin:0 0 10px 0;">RSVP</h2>
+  <p style="margin:0 0 14px 0;">Enter your email address to access your RSVP form.</p>
+
+  <input
+    id="rsvpEmail"
+    type="email"
+    placeholder="you@example.com"
+    style="width:100%;padding:12px;font-size:16px;box-sizing:border-box;"
+    autocomplete="email"
+    required
+  />
+  <button
+    id="rsvpGo"
+    style="margin-top:12px;width:100%;padding:12px;font-size:16px;cursor:pointer;"
+  >
+    Continue
+  </button>
+
+  <div id="rsvpErr" style="display:none;margin-top:10px;color:#b00020;"></div>
+</div>
+
+<div id="rsvpStep2" style="display:none; width:100%; margin:0 auto;">
+  <iframe
+    id="rsvpFrame"
+    style="
+      width:100%;
+      max-width:1200px;
+      height:1600px;
+      border:0;
+      display:block;
+      margin:0 auto;
+    "
+    scrolling="yes"
+    allow="clipboard-read; clipboard-write"
+  ></iframe>
+</div>
+
+<script>
+  (function () {
+    const APP_URL = "https://script.google.com/macros/s/AKfycbwUXorUhYNOOSQw32ZLCVbB4EX5-O0hK94Pq1HrqfcUjgAc8caE3LfvNBwpyoG5KY8-/exec"; // <-- replace
+
+    function go() {
+      const email = (document.getElementById('rsvpEmail').value || '').trim();
+      const err = document.getElementById('rsvpErr');
+
+      if (!email) {
+        err.style.display = 'block';
+        err.textContent = 'Please enter your email address.';
+        return;
+      }
+
+      err.style.display = 'none';
+
+      // Keep user on Squarespace: load RSVP into iframe
+      const iframeUrl = APP_URL + "?page=rsvp&email=" + encodeURIComponent(email);
+
+      document.getElementById('rsvpFrame').src = iframeUrl;
+
+      document.getElementById('rsvpStep1').style.display = 'none';
+      document.getElementById('rsvpStep2').style.display = 'block';
+
+      // Optional: scroll to the iframe
+      document.getElementById('rsvpStep2').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('rsvpGo').addEventListener('click', go);
+    document.getElementById('rsvpEmail').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') go();
+    });
+  })();
+</script>
 
