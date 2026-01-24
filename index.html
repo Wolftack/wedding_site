@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Luba & Tackin</title>
+  <title>Schedule • Luba & Tackin</title>
+
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/schedule.css">
 </head>
-<body>
+
+<body class="schedule-theme">
   <div class="topbar">
     <div class="navwrap">
-      <a class="logo" href="index.html">Luba and Tackin</a>
+      <a class="logo" href="index.html">Luba &amp; Tackin</a>
       <nav class="nav">
         <a href="schedule.html">Schedule</a>
         <a href="travel.html">Travel</a>
@@ -20,35 +23,75 @@
     </div>
   </div>
 
-  <div class="container">
-    <section class="hero">
-      <h1>We’re getting married</h1>
-      <p>Welcome! Use the tabs above for schedule, travel details, FAQs, RSVP, and registry.</p>
+  <!-- HERO (photo top-left + intro text) -->
+  <header class="sched-hero">
+    <div class="sched-hero-inner">
+      <div class="sched-hero-photo">
+        <img src="assets/images/schedule_hero.png" alt="Luba & Tackin">
+      </div>
+
+      <div class="sched-hero-copy">
+        <h1>Schedule</h1>
+        <p>
+          All wedding events will take place at Château Hotel Grand Barrail<br>
+          in Saint-Émilion
+        </p>
+        <p class="sched-linkline">
+          See <a href="travel.html">here</a> for more info.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Floral divider section you scroll to -->
+  <section class="sched-divider">
+    <img src="assets/images/floral-divider.jpg" alt="" aria-hidden="true">
+  </section>
+
+  <!-- Schedule content -->
+  <main class="sched-wrap">
+    <section class="day">
+      <div class="day-left">
+        <h2>Friday, September 4</h2>
+        <p class="dress">Dress code: Cocktail<br>attire</p>
+      </div>
+      <div class="day-right">
+        <p class="event"><strong>Cocktail hour</strong> – 6:00pm</p>
+        <p class="event"><strong>Dinner</strong> – 7:00pm</p>
+      </div>
     </section>
 
-    <div class="grid">
-      <section class="card">
-        <h2>Quick info</h2>
-        <p><strong>Date:</strong> (add date)</p>
-        <p><strong>Location:</strong> (add location)</p>
-        <p><strong>Dress code:</strong> (optional)</p>
-      </section>
+    <section class="day">
+      <div class="day-left">
+        <h2>Saturday, September 5</h2>
+        <p class="dress">Dress code: Colorful<br>formal attire</p>
+      </div>
+      <div class="day-right">
+        <p class="event"><strong>Ceremony</strong> – 4:30pm</p>
+        <p class="event"><strong>Cocktail hour</strong> – 5:30pm</p>
+        <p class="event"><strong>Dinner and Reception</strong> – 7:00pm</p>
+      </div>
+    </section>
 
-      <section class="card">
-        <h2>Photo</h2>
-        <img class="photo" src="assets/images/hero.jpg" alt="Photo">
-        <p style="margin-top:10px;">Replace <code>assets/images/hero.jpg</code> with your image.</p>
-      </section>
-    </div>
-  </div>
+    <section class="day">
+      <div class="day-left">
+        <h2>Sunday, September 6</h2>
+        <p class="dress">Dress code: Casual<br>chic</p>
+      </div>
+      <div class="day-right">
+        <p class="event"><strong>Brunch</strong> – 11:00am</p>
+      </div>
+    </section>
+  </main>
 
   <script>
     // highlight active tab
-    const here = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav a').forEach(a => {
-      if (a.getAttribute('href') === here) a.classList.add('active');
-    });
+    (function () {
+      const here = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav a').forEach(a => {
+        if (a.getAttribute('href') === here) a.classList.add('active');
+      });
+    })();
   </script>
 </body>
 </html>
-
