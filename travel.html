@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Schedule • Luba & Tackin</title>
+  <title>Travel • Luba & Tackin</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+
+<body class="travel-theme">
   <div class="topbar">
     <div class="navwrap">
-      <a class="logo" href="index.html">Luba and Tackin</a>
+      <a class="logo" href="index.html">Luba &amp; Tackin</a>
       <nav class="nav">
         <a href="schedule.html">Schedule</a>
         <a href="travel.html">Travel</a>
@@ -20,22 +21,57 @@
     </div>
   </div>
 
-  <div class="container">
-    <section class="card">
-      <h1>Schedule</h1>
-      <p>Add your schedule here.</p>
-      <p><strong>Welcome dinner:</strong> …</p>
-      <p><strong>Ceremony:</strong> …</p>
-      <p><strong>Reception:</strong> …</p>
-    </section>
-  </div>
+  <!-- HERO -->
+  <section class="travel-hero">
+    <div class="travel-hero-inner">
+      <div>
+        <img src="assets/images/chateau.jpg" alt="Chateau">
+      </div>
+
+      <div>
+        <h1>Travel to Saint-Émilion</h1>
+        <p>Below you’ll find details about travel and hotel recommendations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="travel-content">
+    <div class="travel-content-inner">
+      <div class="travel-left">
+        <h2>Getting there</h2>
+
+        <p><strong>Wedding celebrations will take place at Chateau Hotel Grand Barrail</strong></p>
+
+        <div class="address">
+          3343 Route de Libourne, 33330 Saint-Émilion, France
+        </div>
+      </div>
+
+      <div class="travel-right">
+        <h3>From Bordeaux</h3>
+        <p>Saint-Émilion is located a short drive or uber away from the center of Bordeaux (~45 min).</p>
+        <p>Alternatively, a quick regional TER train runs regularly from Bordeaux Saint-Jean (~35 min).</p>
+
+        <hr class="travel-rule">
+
+        <h3>From Paris</h3>
+        <p>The most convenient way is to take a TGV train from Paris to Bordeaux (~2–3 hours).</p>
+        <p>Then follow recommendations above on travel from Bordeaux to Saint-Émilion.</p>
+
+        <hr class="travel-rule">
+      </div>
+    </div>
+  </section>
 
   <script>
-    const here = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav a').forEach(a => {
-      if (a.getAttribute('href') === here) a.classList.add('active');
-    });
+    // highlight active tab
+    (function () {
+      const here = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav a').forEach(a => {
+        if (a.getAttribute('href') === here) a.classList.add('active');
+      });
+    })();
   </script>
 </body>
 </html>
-
