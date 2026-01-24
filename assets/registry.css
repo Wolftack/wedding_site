@@ -1,0 +1,83 @@
+:root{
+  --cream: #e7dfd2;
+  --burgundy: #7b0015;
+  --rule: rgba(231,223,210,.70);
+}
+
+body.registry-theme{
+  background: var(--burgundy);
+  color: #fff;
+}
+
+/* Header theme */
+.registry-theme .topbar{
+  background: var(--cream);
+  border-bottom: 1px solid rgba(123,0,21,.18);
+}
+
+.registry-theme .logo{
+  color: var(--burgundy);
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 34px;
+}
+
+.registry-theme .nav a{
+  color: var(--burgundy);
+  font-family: Georgia, serif;
+  font-size: 22px;
+}
+
+.registry-theme .nav a.active{
+  background: transparent;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 2px;
+}
+
+/* Content */
+.registry-wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 18px 90px;
+  text-align: center;
+}
+
+.registry-title{
+  margin: 0 0 18px 0;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 72px;
+  line-height: 1.1;
+}
+
+.registry-sub{
+  margin: 0 auto 34px;
+  max-width: 900px;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  line-height: 1.45;
+  color: rgba(255,255,255,.92);
+}
+
+.registry-rule{
+  border: 0;
+  height: 2px;
+  background: var(--rule);
+  max-width: 980px;
+  margin: 34px auto 34px;
+}
+
+.registry-img{
+  width: min(980px, 100%);
+  border: 4px solid rgba(231,223,210,.55);
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px){
+  .registry-title{ font-size: 54px; }
+  .registry-sub{ font-size: 24px; }
+}
