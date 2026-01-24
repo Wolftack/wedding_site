@@ -1,35 +1,33 @@
+/* ===== Schedule theme (matches burgundy + cream) ===== */
 :root{
   --cream: #e7dfd2;
   --burgundy: #7b0015;
-  --gold: #d7b874;
-  --rule: rgba(231,223,210,.70);
+  --burgundy2: #8a0018;
+  --gold: #d8c08a;
+  --white: #ffffff;
 }
 
-/* overall page */
 body.schedule-theme{
-  background: var(--burgundy);
-  color: #fff;
+  background: var(--cream);
+  color: var(--burgundy);
 }
 
-/* header (cream bar) */
+/* Make topbar match theme */
 .schedule-theme .topbar{
   background: var(--cream);
   border-bottom: 1px solid rgba(123,0,21,.18);
 }
-
 .schedule-theme .logo{
   color: var(--burgundy);
   font-family: Georgia, serif;
   font-style: italic;
   font-size: 34px;
 }
-
 .schedule-theme .nav a{
   color: var(--burgundy);
   font-family: Georgia, serif;
   font-size: 22px;
 }
-
 .schedule-theme .nav a.active{
   background: transparent;
   border: none;
@@ -38,10 +36,10 @@ body.schedule-theme{
   text-decoration-thickness: 2px;
 }
 
-/* HERO */
+/* ===== HERO (split panel + photo) ===== */
 .sched-hero{
-  background: var(--burgundy);
-  padding: 44px 0 32px;
+  background: var(--burgundy2);
+  padding: 46px 0;
 }
 
 .sched-hero-inner{
@@ -49,121 +47,180 @@ body.schedule-theme{
   margin: 0 auto;
   padding: 0 18px;
   display: grid;
-  grid-template-columns: 520px 1fr;
-  gap: 70px;
+  grid-template-columns: 420px 1fr;
+  gap: 42px;
+  align-items: stretch;
+}
+
+.sched-hero-left{
+  display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 36px 24px;
 }
 
-.sched-hero-photo img{
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 4px solid rgba(231,223,210,.55);
-}
-
-.sched-hero-copy h1{
-  margin: 0 0 18px 0;
+.sched-title{
+  margin: 0;
+  color: var(--white);
   font-family: Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 72px;
+  font-size: 76px;
   line-height: 1.05;
-  color: rgba(255,255,255,.96);
+  text-align: left;
 }
 
-.sched-hero-copy p{
-  margin: 0 0 10px 0;
+.sched-hero-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sched-hero-photo{
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  display: block;
+  border: 6px solid rgba(231,223,210,.55);
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+}
+
+/* ===== Intro bar ===== */
+.sched-intro{
+  background: var(--burgundy2);
+  padding: 38px 0 22px;
+}
+
+.sched-intro-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.sched-h2{
+  margin: 0;
+  color: var(--white);
   font-family: Georgia, serif;
-  font-size: 30px;
-  line-height: 1.45;
-  color: rgba(255,255,255,.92);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 62px;
+  line-height: 1.05;
 }
 
-.sched-linkline a{
+.sched-lead{
+  margin: 0 0 14px 0;
+  color: rgba(255,255,255,.92);
+  font-family: Georgia, serif;
+  font-size: 26px;
+  line-height: 1.45;
+}
+
+.sched-link{
   color: var(--gold);
   text-decoration: underline;
   text-underline-offset: 6px;
 }
 
-/* Floral divider section */
+/* ===== Floral divider as an integrated “bar” ===== */
+/* Put your generated file at: assets/images/floral-divider.png */
 .sched-divider{
-  padding: 18px 0 6px;
+  height: 170px;
+  background-color: var(--burgundy2);
+  background-image: url("images/floral-divider.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 920px auto; /* tweak if you want bigger/smaller */
 }
 
-.sched-divider img{
-  width: min(1100px, 92vw);
-  display: block;
-  margin: 0 auto;
+/* ===== Body / events ===== */
+.sched-body{
+  background: var(--burgundy2);
+  padding: 26px 0 80px;
 }
 
-/* CONTENT */
-.sched-wrap{
+.sched-body-inner{
   max-width: 1200px;
   margin: 0 auto;
-  padding: 18px 18px 90px;
+  padding: 0 18px;
 }
 
-/* Each day row */
-.day{
+.sched-row{
   display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: 90px;
-  padding: 30px 0;
+  grid-template-columns: 420px 1fr;
+  gap: 42px;
+  padding: 28px 0;
 }
 
-.day + .day{
-  border-top: 2px solid var(--rule);
-}
-
-.day-left h2{
-  margin: 0 0 16px 0;
+.sched-date h3{
+  margin: 0 0 14px 0;
+  color: var(--white);
   font-family: Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 54px;
-  color: rgba(255,255,255,.96);
+  font-size: 46px;
 }
 
-.dress{
+.sched-sub{
   margin: 0;
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 30px;
+  line-height: 1.35;
+}
+
+/* Right side events */
+.sched-events{
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.sched-event{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 6px;
+}
+
+.sched-event-title{
+  color: var(--white);
+  font-family: Georgia, serif;
+  font-weight: 600;
+  font-size: 34px;
+}
+
+.sched-event-time{
+  color: var(--white);
   font-family: Georgia, serif;
   font-size: 34px;
-  line-height: 1.35;
-  color: var(--gold);
+  white-space: nowrap;
 }
 
-.day-right{
-  padding-top: 10px;
-}
-
-.event{
-  margin: 0 0 18px 0;
-  font-family: Georgia, serif;
-  font-size: 40px;
-  line-height: 1.35;
-  color: rgba(255,255,255,.92);
-}
-
-.event strong{
-  font-weight: 600;
+/* Divider rule like the reference */
+.sched-rule{
+  border: 0;
+  height: 2px;
+  background: rgba(255,255,255,.55);
+  margin: 0;
 }
 
 /* Responsive */
-@media (max-width: 1100px){
-  .sched-hero-inner{
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-
-  .sched-hero-copy h1{ font-size: 56px; }
-  .sched-hero-copy p{ font-size: 24px; }
-
-  .day{
+@media (max-width: 980px){
+  .sched-hero-inner,
+  .sched-intro-inner,
+  .sched-row{
     grid-template-columns: 1fr;
     gap: 22px;
   }
 
-  .day-left h2{ font-size: 44px; }
-  .dress{ font-size: 28px; }
-  .event{ font-size: 30px; }
+  .sched-title{ font-size: 58px; text-align: center; }
+  .sched-h2{ font-size: 52px; }
+  .sched-date h3{ font-size: 40px; }
+  .sched-event-title, .sched-event-time{ font-size: 28px; }
+  .sched-divider{ background-size: 760px auto; height: 150px; }
 }
