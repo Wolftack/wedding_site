@@ -1,0 +1,152 @@
+:root{
+  --cream: #e7dfd2;
+  --burgundy: #7b0015;
+  --gold: #d7b874;   /* for dress code accent */
+  --rule: rgba(231,223,210,.65);
+}
+
+body.schedule-theme{
+  background: var(--burgundy);
+  color: #fff;
+}
+
+/* Header theme */
+.schedule-theme .topbar{
+  background: var(--cream);
+  border-bottom: 1px solid rgba(123,0,21,.18);
+}
+
+.schedule-theme .logo{
+  color: var(--burgundy);
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 34px;
+}
+
+.schedule-theme .nav a{
+  color: var(--burgundy);
+  font-family: Georgia, serif;
+  font-size: 22px;
+}
+
+.schedule-theme .nav a.active{
+  background: transparent;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 2px;
+}
+
+/* Page wrapper */
+.schedule-wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 18px 90px;
+}
+
+/* Top intro block (title + right copy) */
+.schedule-intro{
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 90px;
+  align-items: start;
+  margin-bottom: 34px;
+}
+
+.schedule-title{
+  margin: 0;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 86px;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.schedule-intro-copy{
+  font-family: Georgia, serif;
+  font-size: 30px;
+  line-height: 1.45;
+  color: rgba(255,255,255,.92);
+  padding-top: 18px;
+}
+
+.schedule-intro-copy a{
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* Divider line */
+.schedule-rule{
+  border: 0;
+  height: 2px;
+  background: var(--rule);
+  margin: 34px 0 42px;
+}
+
+/* Each day row */
+.day{
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 90px;
+  padding: 28px 0;
+}
+
+.day:last-of-type{
+  padding-bottom: 0;
+}
+
+.day-left h2{
+  margin: 0 0 16px 0;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 54px;
+  color: #fff;
+}
+
+.dress{
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 34px;
+  line-height: 1.35;
+  color: var(--gold);
+}
+
+.day-right{
+  padding-top: 10px;
+}
+
+.event{
+  font-family: Georgia, serif;
+  font-size: 40px;
+  line-height: 1.35;
+  margin: 0 0 18px 0;
+  color: rgba(255,255,255,.95);
+}
+
+.event strong{
+  font-weight: 600;
+}
+
+/* thin divider between days (matches screenshot) */
+.day + .day{
+  border-top: 2px solid var(--rule);
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .schedule-intro,
+  .day{
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .schedule-title{ font-size: 60px; }
+  .schedule-intro-copy{ font-size: 24px; }
+
+  .day-left h2{ font-size: 44px; }
+  .dress{ font-size: 28px; }
+  .event{ font-size: 30px; }
+}
