@@ -1,113 +1,211 @@
+/* assets/rsvp.css
+   RSVP-only styling (does NOT modify your global site styles)
+*/
+
 :root{
   --cream: #e7dfd2;
   --burgundy: #7b0015;
-  --line: rgba(255,255,255,.55);
+  --burgundy2: #8a0018;
+  --ink: #2b1a1e;
+  --rule: rgba(123,0,21,.35);
+  --card: rgba(255,255,255,.78);
 }
 
+/* Page background + type */
 body.rsvp-theme{
-  background: var(--burgundy);
-  color: #fff;
+  margin: 0;
+  background: var(--cream);
+  color: var(--burgundy);
+  font-family: Georgia, serif;
 }
 
-/* keep header consistent */
+/* ✅ Fix: add consistent left/right gutters so content isn't flush-left */
+body.rsvp-theme{
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Keep your sticky topbar working nicely */
 .rsvp-theme .topbar{
-  background: var(--cream);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(231,223,210,.92);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(123,0,21,.18);
 }
 
-/* page layout */
-.rsvp-wrap{
-  max-width: 1100px;
+/* Nav container */
+.rsvp-theme .navwrap{
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 70px 20px 110px;
+  padding: 14px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
 }
 
-.rsvp-title{
-  font-family: Georgia, serif;
+/* Logo + nav typography to match your theme */
+.rsvp-theme .logo{
+  color: var(--burgundy);
+  text-decoration: none;
+  font-style: italic;
+  font-size: 34px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.rsvp-theme .nav{
+  display:flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.rsvp-theme .nav a{
+  color: var(--burgundy);
+  text-decoration: none;
+  font-size: 22px;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.rsvp-theme .nav a:hover{
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 2px;
+}
+
+.rsvp-theme .nav a.active{
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 2px;
+}
+
+/* Main RSVP wrapper: center + comfortable width */
+.rsvp-wrap{
+  max-width: 980px;
+  margin: 40px auto 70px;
+}
+
+/* Card-like container (soft, consistent) */
+.rsvp-card{
+  background: var(--card);
+  border: 1px solid rgba(123,0,21,.14);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+/* Headings */
+.rsvp-card h1{
+  margin: 0 0 10px 0;
   font-style: italic;
   font-weight: 500;
-  font-size: 72px;
-  margin: 0 0 14px 0;
+  font-size: 64px;
+  line-height: 1.05;
+  color: var(--burgundy);
 }
 
-.rsvp-sub{
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: 28px;
-  line-height: 1.35;
-  color: rgba(255,255,255,.88);
-  max-width: 760px;
-  margin: 0;
+.rsvp-card p{
+  margin: 0 0 18px 0;
+  font-size: 22px;
+  line-height: 1.4;
+  color: rgba(123,0,21,.85);
 }
 
-.rsvp-divider{
-  height: 2px;
-  background: var(--line);
-  border: 0;
-  margin: 28px 0 34px;
-}
-
-/* form */
-.rsvp-panel{
-  max-width: 720px;
-}
-
-.rsvp-field{
+/* Inputs/buttons */
+.rsvp-card input[type="email"]{
   width: 100%;
-  padding: 16px 18px;
+  padding: 14px 14px;
   font-size: 18px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.35);
-  background: rgba(255,255,255,.10);
-  color: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(123,0,21,.25);
+  background: rgba(255,255,255,.9);
   outline: none;
 }
 
-.rsvp-field::placeholder{
-  color: rgba(255,255,255,.6);
+.rsvp-card input[type="email"]:focus{
+  border-color: rgba(123,0,21,.55);
+  box-shadow: 0 0 0 3px rgba(123,0,21,.12);
 }
 
-.rsvp-field:focus{
-  border-color: rgba(255,255,255,.65);
-  background: rgba(255,255,255,.14);
-}
-
-.rsvp-btn{
-  margin-top: 14px;
+.rsvp-card button{
   width: 100%;
-  padding: 16px;
+  margin-top: 14px;
+  padding: 14px 14px;
   font-size: 18px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.35);
-  background: rgba(255,255,255,.20);
-  color: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(123,0,21,.25);
+  background: rgba(123,0,21,.10);
+  color: var(--burgundy);
   cursor: pointer;
 }
 
-.rsvp-btn:hover{
-  background: rgba(255,255,255,.28);
+.rsvp-card button:hover{
+  background: rgba(123,0,21,.14);
 }
 
-.rsvp-err{
+.rsvp-card button:disabled{
+  opacity: .6;
+  cursor: default;
+}
+
+/* Error message */
+#rsvpErr{
   margin-top: 12px;
-  color: #ffd7d7;
-  display: none;
-  font-family: Georgia, serif;
+  color: #7b0015;
   font-size: 18px;
 }
 
-/* iframe */
-.rsvp-frame{
-  width: 100%;
-  height: 1700px;
-  border: 0;
-  display: block;
+/* Iframe area */
+#rsvpStep2{
+  margin-top: 18px;
 }
 
-/* mobile */
+#rsvpFrame{
+  width: 100%;
+  max-width: 1200px;
+  height: 1600px;
+  border: 0;
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+}
+
+/* Responsive tuning */
 @media (max-width: 900px){
-  .rsvp-wrap{ padding: 44px 18px 80px; }
-  .rsvp-title{ font-size: 48px; }
-  .rsvp-sub{ font-size: 22px; }
-  .rsvp-frame{ height: 1850px; }
+  body.rsvp-theme{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .rsvp-wrap{
+    margin: 28px auto 50px;
+  }
+
+  .rsvp-card{
+    padding: 20px;
+  }
+
+  .rsvp-card h1{
+    font-size: 48px;
+  }
+
+  .rsvp-card p{
+    font-size: 18px;
+  }
+
+  .rsvp-theme .logo{
+    font-size: 28px;
+  }
+
+  .rsvp-theme .nav a{
+    font-size: 18px;
+  }
+
+  #rsvpFrame{
+    height: 1400px;
+  }
 }
