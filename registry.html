@@ -1,1 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Registry • Luba & Tackin</title>
+
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/registry.css">
+</head>
+
+<body class="registry-theme">
+  <div class="topbar">
+    <div class="navwrap">
+      <a class="logo" href="index.html">Luba &amp; Tackin</a>
+      <nav class="nav">
+        <a href="schedule.html">Schedule</a>
+        <a href="travel.html">Travel</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="registry.html">Registry</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="registry-wrap">
+    <h1 class="registry-title">Registry</h1>
+    <p class="registry-sub">Making our list and checking it twice…</p>
+
+    <hr class="registry-rule">
+
+    <img
+      class="registry-img"
+      src="assets/images/french-santa.jpg"
+      alt="A very French Santa enjoying a celebratory drink"
+    />
+  </main>
+
+  <script>
+    // highlight active tab
+    (function () {
+      const here = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav a').forEach(a => {
+        if (a.getAttribute('href') === here) a.classList.add('active');
+      });
+    })();
+  </script>
+</body>
+</html>
 
