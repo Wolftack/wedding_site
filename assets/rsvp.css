@@ -1,0 +1,105 @@
+/* =========================
+   RSVP PAGE ONLY
+   ========================= */
+
+:root{
+  --cream: #e7dfd2;
+  --burgundy: #7b0015;
+  --line: rgba(255,255,255,.55);
+}
+
+/* Page background */
+body{
+  background: var(--burgundy);
+  color: #fff;
+}
+
+/* Keep existing topbar intact */
+.topbar{
+  background: var(--cream);
+}
+
+/* RSVP layout */
+.rsvp-wrap{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 20px 96px;
+}
+
+.rsvp-title{
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 64px;
+  margin-bottom: 12px;
+}
+
+.rsvp-sub{
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 26px;
+  color: rgba(255,255,255,.85);
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+/* Divider like other pages */
+.rsvp-divider{
+  height: 1px;
+  background: var(--line);
+  margin: 28px 0;
+}
+
+/* Form */
+.rsvp-panel{
+  max-width: 680px;
+}
+
+.rsvp-field{
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+
+.rsvp-field::placeholder{
+  color: rgba(255,255,255,.6);
+}
+
+.rsvp-btn{
+  margin-top: 14px;
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  cursor: pointer;
+}
+
+.rsvp-btn:hover{
+  background: rgba(255,255,255,.28);
+}
+
+.rsvp-err{
+  margin-top: 12px;
+  color: #ffd7d7;
+  display: none;
+}
+
+.rsvp-frame{
+  width: 100%;
+  height: 1600px;
+  border: 0;
+  margin-top: 32px;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .rsvp-title{ font-size: 46px; }
+  .rsvp-sub{ font-size: 22px; }
+}
