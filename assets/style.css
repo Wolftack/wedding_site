@@ -20,10 +20,10 @@ body{ overflow-x:hidden; }
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(231,223,210,.92);
-  backdrop-filter: blur(8px);
+  background: var(--cream);
   border-bottom: 1px solid rgba(123,0,21,.18);
 }
+
 
 /* This is what you’re missing right now (it fixes the “congested” header) */
 .navwrap{
