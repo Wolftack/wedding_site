@@ -1,3 +1,7 @@
+/* assets/style.css
+   Shared layout only: tokens + topbar + nav spacing + active underline
+   (Pages can have their own CSS for body/background/content.) */
+
 :root{
   --cream: #e7dfd2;
   --burgundy: #7b0015;
@@ -11,19 +15,16 @@
 html,body{ margin:0; padding:0; }
 body{ overflow-x:hidden; }
 
-a{ color: var(--link); }
-a:hover{ opacity:.9; }
-
-/* ===== TOP BAR (GLOBAL) ===== */
+/* TOP BAR */
 .topbar{
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 20;
   background: var(--cream);
   border-bottom: 1px solid rgba(123,0,21,.18);
 }
 
-/* THIS is what prevents the “congested” look */
+/* This is what you’re missing right now (it fixes the “congested” header) */
 .navwrap{
   max-width: var(--max);
   margin: 0 auto;
@@ -34,6 +35,7 @@ a:hover{ opacity:.9; }
   gap: 18px;
 }
 
+/* Brand */
 .logo{
   color: var(--burgundy);
   font-family: Georgia, serif;
@@ -43,11 +45,12 @@ a:hover{ opacity:.9; }
   white-space: nowrap;
 }
 
+/* Nav */
 .nav{
   display: flex;
-  gap: clamp(14px, 2vw, 26px);
   align-items: center;
   justify-content: flex-end;
+  gap: clamp(12px, 2vw, 24px);
   flex-wrap: wrap;
 }
 
@@ -56,18 +59,19 @@ a:hover{ opacity:.9; }
   font-family: Georgia, serif;
   font-size: clamp(16px, 1.8vw, 22px);
   text-decoration: none;
-  padding: 6px 4px;
-  line-height: 1.1;
-}
-
-/* lock header colors even if page css tries to override */
-.topbar .logo,
-.topbar .nav a{
-  color: var(--burgundy) !important;
+  padding: 6px 6px;
 }
 
 .nav a.active{
   text-decoration: underline;
   text-underline-offset: 10px;
   text-decoration-thickness: 2px;
+}
+
+/* Mobile niceness */
+@media (max-width: 720px){
+  .navwrap{
+    align-items: flex-start;
+    gap: 10px;
+  }
 }
