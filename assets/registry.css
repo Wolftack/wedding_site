@@ -9,25 +9,6 @@ body.registry-theme{
   color: #fff;
 }
 
-/* Header theme */
-.registry-theme .topbar{
-  background: var(--cream);
-  border-bottom: 1px solid rgba(123,0,21,.18);
-}
-
-.registry-theme .logo{
-  color: var(--burgundy);
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: 34px;
-}
-
-.registry-theme .nav a{
-  color: var(--burgundy);
-  font-family: Georgia, serif;
-  font-size: 22px;
-}
-
 .registry-theme .nav a.active{
   background: transparent;
   border: none;
