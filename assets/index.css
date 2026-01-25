@@ -2,6 +2,7 @@
    SCHEDULE PAGE (self-contained)
    - does NOT rely on style.css tokens
    - only assumes nav/topbar comes from style.css
+   - Divider sits BETWEEN blocks (centered spacing)
 =========================== */
 
 :root{
@@ -93,7 +94,7 @@ body.schedule-page .nav a.active{
   /* Make it “a bit larger” but still natural */
   max-height: 560px;
   box-shadow: 0 0 0 1px rgba(0,0,0,.08); /* optional, very subtle */
-  object-fit: contain; /* harmless here since height is auto, but fine to keep */
+  object-fit: contain;
 }
 
 /* Mobile: stack hero */
@@ -151,32 +152,50 @@ body.schedule-page .nav a.active{
 
 /* ===========================
    SCHEDULE LIST
+   Divider sits BETWEEN day blocks:
+   - each .sched-day owns the "top half" space + line
+   - no extra gap/margins double-stacking
 =========================== */
 
 .sched-list{
   display: grid;
-  gap: clamp(24px, 3.5vw, 44px);
+  gap: 0; /* IMPORTANT: no extra spacing here; spacing is inside each day */
 }
 
 .sched-day{
-  padding-top: clamp(18px, 2.5vw, 28px);
-  border-top: 2px solid var(--rule);
-  margin-bottom: 0;
+  position: relative;
+
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: clamp(18px, 3vw, 44px);
   align-items: start;
+
+  border-top: 0;
+  margin: 0;
+
+  /* This creates centered divider spacing between blocks */
+  padding: clamp(28px, 4vw, 48px) 0;
+}
+
+/* Divider line at the start of each block (except the first) */
+.sched-day::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: var(--rule);
 }
 
 .sched-day:first-child{
-  border-top: none;
   padding-top: 0;
 }
-
-.sched-day:last-child{
-  margin-bottom: 0;
+.sched-day:first-child::before{
+  display: none;
 }
 
+/* Left column */
 .sched-day h2{
   margin: 0 0 10px;
   font-style: italic;
@@ -212,11 +231,9 @@ body.schedule-page .nav a.active{
   line-height: 1.25;
   color: var(--ink);
 }
-.sched-events .t{
-  white-space: nowrap;
-}
 
 .sched-events .t{ font-weight: 600; }
+.sched-events .t,
 .sched-events .time{ white-space: nowrap; }
 
 /* Mobile: stack schedule */
@@ -232,25 +249,26 @@ body.schedule-page .nav a.active{
   .sched-hero-left{
     padding-bottom: 8px;
   }
+
+  .sched-day{
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Mobile: keep title+time together and centered (no weird flex gaps) */
 @media (max-width: 700px){
   .sched-events{
-    justify-items: center; /* centers each row within the list */
+    justify-items: center;
   }
 
   .sched-events li{
-    display: inline-flex;        /* shrink-wrap content */
-    justify-content: flex-start; /* no space-between */
-    gap: 10px;                   /* space between title + time */
-    margin-bottom: 0;
+    display: inline-flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 0;
   }
 
-  .sched-events .t{
-    white-space: nowrap; /* keep “Cocktail hour” on one line */
-  }
-
+  .sched-events .t,
   .sched-events .time{
     white-space: nowrap;
   }
