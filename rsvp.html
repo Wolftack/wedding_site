@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/rsvp.css">
 </head>
+
 <body class="rsvp-theme">
   <div class="topbar">
     <div class="navwrap">
@@ -26,30 +27,22 @@
       <h1>RSVP</h1>
       <p>Enter your email address to access your RSVP form.</p>
 
-      <div id="rsvpStep1" style="max-width:520px;">
+      <div id="rsvpStep1">
         <input
           id="rsvpEmail"
           type="email"
           placeholder="sharks@gelato.org"
-          style="width:100%;padding:12px;font-size:16px;box-sizing:border-box;"
           autocomplete="email"
           required
         />
-        <button
-          id="rsvpGo"
-          style="margin-top:12px;width:100%;padding:12px;font-size:16px;cursor:pointer;"
-          type="button"
-        >
-          Continue
-        </button>
+        <button id="rsvpGo" type="button">Continue</button>
 
-        <div id="rsvpErr" style="display:none;margin-top:10px;color:#b00020;"></div>
+        <div id="rsvpErr" style="display:none;"></div>
       </div>
 
-      <div id="rsvpStep2" style="display:none; width:100%; margin-top:18px;">
+      <div id="rsvpStep2" style="display:none;">
         <iframe
           id="rsvpFrame"
-          style="width:100%; max-width:1200px; height:1600px; border:0; display:block;"
           scrolling="yes"
           allow="clipboard-read; clipboard-write"
         ></iframe>
@@ -66,7 +59,6 @@
       });
     })();
 
-    // RSVP embed logic (runs after DOM is ready)
     window.addEventListener('DOMContentLoaded', () => {
       const APP_URL = "https://script.google.com/macros/s/AKfycbxYG7tdqDCiu2dJcoYq2_THnlvdb6XekeHpmFhXX_ZN4Itho2NxYMbT8NeoHieG6AQk/exec";
 
@@ -76,6 +68,27 @@
       const step1 = document.getElementById('rsvpStep1');
       const step2 = document.getElementById('rsvpStep2');
       const frame = document.getElementById('rsvpFrame');
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function setFrameHeight(h) {
+        const height = clamp(Number(h) || 0, 900, 6000);
+        if (!height) return;
+        frame.style.height = height + 'px';
+      }
+
+      // Listen for height messages from the embedded Google Apps Script page
+      window.addEventListener('message', (event) => {
+        // Security: only accept messages from script.google.com
+        if (event.origin !== 'https://script.google.com') return;
+
+        const data = event.data || {};
+        if (data.type === 'RSVP_IFRAME_HEIGHT' && data.height) {
+          setFrameHeight(data.height);
+        }
+      });
 
       function go() {
         const email = (emailEl.value || '').trim();
@@ -88,12 +101,13 @@
 
         errEl.style.display = 'none';
 
-        const iframeUrl = APP_URL + "?page=rsvp&email=" + encodeURIComponent(email);
-        frame.src = iframeUrl;
+        // Reset to a reasonable height immediately (prevents “tiny iframe” on mobile while loading)
+        frame.style.height = '1400px';
+
+        frame.src = APP_URL + "?page=rsvp&email=" + encodeURIComponent(email);
 
         step1.style.display = 'none';
         step2.style.display = 'block';
-
         step2.scrollIntoView({ behavior: 'smooth' });
       }
 
