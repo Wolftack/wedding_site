@@ -51,6 +51,11 @@ body.rsvp-theme{
   color: rgba(123,0,21,.85);
 }
 
+.rsvp-card > p{
+  max-width: 520px;
+  margin: 0 auto 14px;
+}
+
 /* Center + narrow the email gate */
 #rsvpStep1{
   max-width: 520px;
