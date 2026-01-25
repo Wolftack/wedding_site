@@ -14,40 +14,16 @@ body{ overflow-x:hidden; }
 a{ color: var(--link); }
 a:hover{ opacity:.9; }
 
-/* ===========================
-   TOP BAR (shared)
-=========================== */
-/* ===== TOP BAR (GLOBAL, NEVER OVERRIDDEN) ===== */
+/* ===== TOP BAR (GLOBAL) ===== */
 .topbar{
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 50;
   background: var(--cream);
   border-bottom: 1px solid rgba(123,0,21,.18);
 }
 
-.logo{
-  color: var(--burgundy);
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: clamp(22px, 2.6vw, 34px);
-  text-decoration: none;
-}
-
-.nav a{
-  color: var(--burgundy);
-  font-family: Georgia, serif;
-  font-size: clamp(16px, 1.8vw, 22px);
-  text-decoration: none;
-}
-
-.nav a.active{
-  text-decoration: underline;
-  text-underline-offset: 10px;
-  text-decoration-thickness: 2px;
-}
-
-/* Layout wrapper for header */
+/* THIS is what prevents the “congested” look */
 .navwrap{
   max-width: var(--max);
   margin: 0 auto;
@@ -58,7 +34,15 @@ a:hover{ opacity:.9; }
   gap: 18px;
 }
 
-/* Nav layout */
+.logo{
+  color: var(--burgundy);
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(22px, 2.6vw, 34px);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 .nav{
   display: flex;
   gap: clamp(14px, 2vw, 26px);
@@ -67,10 +51,23 @@ a:hover{ opacity:.9; }
   flex-wrap: wrap;
 }
 
-/* Give links a touch of breathing room */
 .nav a{
+  color: var(--burgundy);
+  font-family: Georgia, serif;
+  font-size: clamp(16px, 1.8vw, 22px);
+  text-decoration: none;
   padding: 6px 4px;
   line-height: 1.1;
 }
 
+/* lock header colors even if page css tries to override */
+.topbar .logo,
+.topbar .nav a{
+  color: var(--burgundy) !important;
+}
 
+.nav a.active{
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 2px;
+}
