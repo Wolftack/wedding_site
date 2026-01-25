@@ -8,25 +8,6 @@ body.travel-theme{
   color: var(--burgundy);
 }
 
-/* Travel header theme */
-.travel-theme .topbar{
-  background: var(--cream);
-  border-bottom: 1px solid rgba(123,0,21,.18);
-}
-
-.travel-theme .logo{
-  color: var(--burgundy);
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: 34px;
-}
-
-.travel-theme .nav a{
-  color: var(--burgundy);
-  font-family: Georgia, serif;
-  font-size: 22px;
-}
-
 .travel-theme .nav a.active{
   background: transparent;
   border: none;
