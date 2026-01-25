@@ -7,28 +7,6 @@
 body.faqs-theme{
   background: var(--burgundy);
   color: #fff;
-}
-
-/* Topbar/nav: let style.css handle most of it, only override colors if needed */
-.faqs-theme .topbar{
-  background: rgba(231,223,210,.92);
-  backdrop-filter: blur(8px);
-}
-
-.faqs-theme .logo,
-.faqs-theme .nav a{
-  color: var(--burgundy);
-  font-family: Georgia, serif;
-  font-size: 22px;
-}
-
-.faqs-theme .nav a.active{
-  background: transparent;
-  border: none;
-  text-decoration: underline;
-  text-underline-offset: 10px;
-  text-decoration-thickness: 2px;
-}
 
 /* Layout */
 .faqs-wrap{
