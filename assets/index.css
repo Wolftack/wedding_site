@@ -52,7 +52,7 @@ body.schedule-page .nav a.active{
 }
 
 .sched-hero-inner{
-  max-width: var(--max);
+  max-width: 1400px; /* wider than content */
   margin: 0 auto;
   padding: 0 var(--pad);
 
@@ -79,22 +79,18 @@ body.schedule-page .nav a.active{
 
 /* HERO PHOTO (improved sizing + no default figure margins) */
 .hero-photo{
-  margin: 0; /* important: figure has default margins */
+  margin: 0;
   width: 100%;
-  max-width: 100%;
-  background: rgba(255,255,255,.92);
-  padding: 2px;
-  border-radius: 2px;
-  display: block;
-  overflow: hidden; /* enables clean crop with object-fit */
+  overflow: hidden;
 }
 
 .hero-photo img{
   width: 100%;
-  height: clamp(260px, 38vh, 520px); /* prevents “giant photo” on wide screens */
-  object-fit: cover;                 /* use contain if you never want cropping */
+  height: clamp(320px, 42vh, 620px);
+  object-fit: cover;
   display: block;
 }
+
 
 /* Mobile: stack hero */
 @media (max-width: 900px){
@@ -214,11 +210,15 @@ body.schedule-page .nav a.active{
 
 /* Mobile: stack schedule */
 @media (max-width: 900px){
-  .sched-day{
+  .sched-hero-inner{
     grid-template-columns: 1fr;
   }
 
-  .sched-events li{
-    font-size: clamp(18px, 2.8vw, 26px);
+  .hero-photo img{
+    height: clamp(260px, 36vh, 420px);
+  }
+
+  .sched-hero-left{
+    padding-bottom: 8px;
   }
 }
