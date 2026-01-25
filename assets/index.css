@@ -161,7 +161,7 @@ body.schedule-page .nav a.active{
 .sched-day{
   padding-top: clamp(18px, 2.5vw, 28px);
   border-top: 2px solid var(--rule);
-
+  margin-bottom: 48px;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: clamp(18px, 3vw, 44px);
@@ -171,6 +171,10 @@ body.schedule-page .nav a.active{
 .sched-day:first-child{
   border-top: none;
   padding-top: 0;
+}
+
+.sched-day:last-child{
+  margin-bottom: 0;
 }
 
 .sched-day h2{
@@ -208,6 +212,13 @@ body.schedule-page .nav a.active{
   line-height: 1.25;
   color: var(--ink);
 }
+.sched-events .t{
+  white-space: nowrap;
+}
+.sched-events .time{
+  margin-left: 16px;
+  white-space: nowrap;
+}
 
 .sched-events .t{ font-weight: 600; }
 .sched-events .time{ white-space: nowrap; }
@@ -224,5 +235,15 @@ body.schedule-page .nav a.active{
 
   .sched-hero-left{
     padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 700px){
+  .sched-day{
+    margin-bottom: 36px;
+  }
+
+  .sched-events li{
+    margin-bottom: 12px;
   }
 }
