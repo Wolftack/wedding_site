@@ -17,6 +17,7 @@ a:hover{ opacity:.9; }
 /* ===========================
    TOP BAR (shared)
 =========================== */
+/* ===== TOP BAR (GLOBAL, NEVER OVERRIDDEN) ===== */
 .topbar{
   position: sticky;
   top: 0;
@@ -25,38 +26,19 @@ a:hover{ opacity:.9; }
   border-bottom: 1px solid rgba(123,0,21,.18);
 }
 
-.navwrap{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 14px var(--pad);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 18px;
-}
-
 .logo{
   color: var(--burgundy);
   font-family: Georgia, serif;
   font-style: italic;
   font-size: clamp(22px, 2.6vw, 34px);
-  text-decoration:none;
-  white-space: nowrap;
-}
-
-.nav{
-  display:flex;
-  gap: clamp(12px, 2vw, 24px);
-  flex-wrap: wrap;
-  justify-content:flex-end;
+  text-decoration: none;
 }
 
 .nav a{
   color: var(--burgundy);
   font-family: Georgia, serif;
   font-size: clamp(16px, 1.8vw, 22px);
-  text-decoration:none;
-  padding: 6px 6px;
+  text-decoration: none;
 }
 
 .nav a.active{
@@ -64,3 +46,4 @@ a:hover{ opacity:.9; }
   text-underline-offset: 10px;
   text-decoration-thickness: 2px;
 }
+
