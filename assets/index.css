@@ -28,12 +28,12 @@ body.schedule-page{
   overflow-x: hidden;
 }
 
-body.schedule-page a{
+body.schedule-page .sched-page a{
   color: var(--gold);
   text-decoration: underline;
   text-underline-offset: 6px;
 }
-body.schedule-page a:hover{ opacity: .92; }
+body.schedule-page .sched-page a:hover{ opacity: .92; }
 
 /* Make sure nav highlights */
 body.schedule-page .nav a.active{
