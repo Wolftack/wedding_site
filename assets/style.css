@@ -47,3 +47,30 @@ a:hover{ opacity:.9; }
   text-decoration-thickness: 2px;
 }
 
+/* Layout wrapper for header */
+.navwrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 14px var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+/* Nav layout */
+.nav{
+  display: flex;
+  gap: clamp(14px, 2vw, 26px);
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* Give links a touch of breathing room */
+.nav a{
+  padding: 6px 4px;
+  line-height: 1.1;
+}
+
+
