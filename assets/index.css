@@ -161,7 +161,7 @@ body.schedule-page .nav a.active{
 .sched-day{
   padding-top: clamp(18px, 2.5vw, 28px);
   border-top: 2px solid var(--rule);
-  margin-bottom: 48px;
+  margin-bottom: 0;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: clamp(18px, 3vw, 44px);
@@ -215,10 +215,6 @@ body.schedule-page .nav a.active{
 .sched-events .t{
   white-space: nowrap;
 }
-.sched-events .time{
-  margin-left: 16px;
-  white-space: nowrap;
-}
 
 .sched-events .t{ font-weight: 600; }
 .sched-events .time{ white-space: nowrap; }
@@ -238,12 +234,24 @@ body.schedule-page .nav a.active{
   }
 }
 
+/* Mobile: keep title+time together and centered (no weird flex gaps) */
 @media (max-width: 700px){
-  .sched-day{
-    margin-bottom: 36px;
+  .sched-events{
+    justify-items: center; /* centers each row within the list */
   }
 
   .sched-events li{
-    margin-bottom: 12px;
+    display: inline-flex;        /* shrink-wrap content */
+    justify-content: flex-start; /* no space-between */
+    gap: 10px;                   /* space between title + time */
+    margin-bottom: 0;
+  }
+
+  .sched-events .t{
+    white-space: nowrap; /* keep “Cocktail hour” on one line */
+  }
+
+  .sched-events .time{
+    white-space: nowrap;
   }
 }
