@@ -74,12 +74,35 @@ body.faqs-theme{
 }
 
 /* Responsive */
-@media (max-width: 1100px){
-  .faqs-grid{
-    grid-template-columns: 1fr;
-    gap: 22px;
+/* ===== Mobile FAQ typography fix ===== */
+@media (max-width: 700px){
+  /* tighten the overall scale */
+  body{
+    font-size: 16px;
+    line-height: 1.5;
   }
-  .faqs-title{ font-size: 60px; }
-  .faqs-theme .faq-q{ font-size: 34px; }
-  .faqs-theme .faq-a{ font-size: 24px; }
+
+  /* If you have a page title like "FAQs" */
+  h1{
+    font-size: 44px;
+    line-height: 1.05;
+  }
+
+  /* Question headings */
+  h2, .faq-q{
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  /* Answer text */
+  p, .faq-a, li{
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  /* Add comfortable gutters so text isn't edge-to-edge */
+  .faq-page, .faqs-page, main{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
