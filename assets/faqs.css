@@ -9,19 +9,6 @@ body.faqs-theme{
   color: #fff;
 }
 
-/* Header theme */
-.faqs-theme .topbar{
-  background: var(--cream);
-  border-bottom: 1px solid rgba(123,0,21,.18);
-}
-
-.faqs-theme .logo{
-  color: var(--burgundy);
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: 34px;
-}
-
 .faqs-theme .nav a{
   color: var(--burgundy);
   font-family: Georgia, serif;
