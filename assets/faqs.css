@@ -7,6 +7,7 @@
 body.faqs-theme{
   background: var(--burgundy);
   color: #fff;
+}
 
 /* Layout */
 .faqs-wrap{
