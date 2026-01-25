@@ -9,6 +9,13 @@ body.faqs-theme{
   color: #fff;
 }
 
+/* Topbar/nav: let style.css handle most of it, only override colors if needed */
+.faqs-theme .topbar{
+  background: rgba(231,223,210,.92);
+  backdrop-filter: blur(8px);
+}
+
+.faqs-theme .logo,
 .faqs-theme .nav a{
   color: var(--burgundy);
   font-family: Georgia, serif;
@@ -37,6 +44,7 @@ body.faqs-theme{
   align-items: start;
 }
 
+/* Left title (desktop) */
 .faqs-title{
   margin: 0;
   font-family: Georgia, serif;
@@ -54,58 +62,60 @@ body.faqs-theme{
   margin-bottom: 34px;
 }
 
-/* FORCE typography to override base style.css */
+/* FAQ typography (desktop) */
 .faqs-theme .faq-q{
   margin: 0 0 16px 0;
-  font-family: Georgia, serif !important;
+  font-family: Georgia, serif;
   font-style: italic;
   font-weight: 500;
   font-size: 46px;
   line-height: 1.2;
-  color: rgba(255,255,255,.95) !important;
+  color: rgba(255,255,255,.95);
 }
 
 .faqs-theme .faq-a{
   margin: 0;
-  font-family: Georgia, serif !important;
+  font-family: Georgia, serif;
   font-size: 30px;
   line-height: 1.45;
-  color: rgba(255,255,255,.92) !important;
+  color: rgba(255,255,255,.92);
 }
 
-/* Responsive */
+/* =========================
+   MOBILE (make it like Travel)
+========================= */
 @media (max-width: 900px){
-  /* 1) Force layout to one column */
-  .faq-hero,
-  .faq-hero-inner,
-  .faq-grid,
-  .faqs-grid,
-  .faq-layout,
-  .faqs-layout{
-    display: block !important;
+
+  /* Make page feel consistent */
+  .faqs-wrap{
+    padding: 28px 16px 70px;
   }
 
-  /* If your wrapper is a grid */
-  .faq-hero-inner{
-    grid-template-columns: 1fr !important;
+  /* Collapse to one column */
+  .faqs-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  /* 2) Hide the left “FAQs” block */
-  .faq-left,
-  .faqs-left,
-  .faq-hero-left,
-  .faq-title{
-    display: none !important;
+  /* Hide the left “FAQs” block on mobile (this is the correct class) */
+  .faqs-title{
+    display: none;
   }
 
-  /* 3) Normal readable type on mobile */
-  h1{ font-size: 44px !important; }
-  h2{ font-size: 22px !important; }
-  p, li{ font-size: 18px !important; line-height: 1.55 !important; }
+  /* Keep questions readable */
+  .faqs-theme .faq-q{
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
 
-  /* 4) Gutters */
-  main, .faq-page, .faqs-page{
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+  .faqs-theme .faq-a{
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .faq{
+    padding-bottom: 22px;
+    margin-bottom: 22px;
   }
 }
