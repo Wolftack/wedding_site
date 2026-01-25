@@ -136,3 +136,12 @@ body.travel-theme{
   .travel-em{ font-size: 28px; }
   .travel-right p{ font-size: 24px; }
 }
+
+@media (max-width: 600px){
+  .travel-hero h1{ font-size: 40px; }
+  .travel-hero p{ font-size: 18px; }
+
+  .travel-left h2{ font-size: 34px; }
+  .travel-em{ font-size: 20px; }
+  .travel-right p{ font-size: 18px; }
+}
