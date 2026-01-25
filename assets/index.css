@@ -135,7 +135,7 @@ body.schedule-page .nav a.active{
   height: clamp(90px, 12vw, 150px);
   margin: clamp(18px, 3vw, 28px) 0 clamp(22px, 3.5vw, 36px);
 
-  background-image: url("images/floral-divider.png");
+  background-image: url("images/floral-divider.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: min(920px, 92vw) auto;
