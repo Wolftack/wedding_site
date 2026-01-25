@@ -84,13 +84,17 @@ body.schedule-page .nav a.active{
   overflow: hidden;
 }
 
+/* No cropping: preserve the full photo */
 .hero-photo img{
   width: 100%;
-  height: clamp(320px, 42vh, 620px);
-  object-fit: cover;
+  height: auto;
   display: block;
-}
 
+  /* Make it “a bit larger” but still natural */
+  max-height: 560px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08); /* optional, very subtle */
+  object-fit: contain; /* harmless here since height is auto, but fine to keep */
+}
 
 /* Mobile: stack hero */
 @media (max-width: 900px){
