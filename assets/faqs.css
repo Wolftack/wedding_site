@@ -74,35 +74,39 @@ body.faqs-theme{
 }
 
 /* Responsive */
-/* ===== Mobile FAQ typography fix ===== */
-@media (max-width: 700px){
-  /* tighten the overall scale */
+/* ===== FAQs: mobile should be single-column (like Travel) ===== */
+@media (max-width: 900px){
+  /* Force any grid / columns layout into one column */
+  .faq-grid,
+  .faqs-grid,
+  .faq-layout,
+  .faqs-layout,
+  .faq-row,
+  .faqs-row,
+  .faq,
+  .faqs,
+  main{
+    grid-template-columns: 1fr !important;
+    column-count: 1 !important;
+  }
+
+  /* If your FAQ has two explicit columns (common pattern) */
+  .faq-left,
+  .faq-right,
+  .faqs-left,
+  .faqs-right{
+    width: 100% !important;
+  }
+
+  /* Make sure text wraps nicely and has gutters */
   body{
-    font-size: 16px;
-    line-height: 1.5;
+    overflow-x: hidden;
   }
 
-  /* If you have a page title like "FAQs" */
-  h1{
-    font-size: 44px;
-    line-height: 1.05;
-  }
-
-  /* Question headings */
-  h2, .faq-q{
-    font-size: 22px;
-    line-height: 1.25;
-  }
-
-  /* Answer text */
-  p, .faq-a, li{
-    font-size: 18px;
-    line-height: 1.55;
-  }
-
-  /* Add comfortable gutters so text isn't edge-to-edge */
-  .faq-page, .faqs-page, main{
-    padding-left: 16px;
-    padding-right: 16px;
+  .faq-page,
+  .faqs-page,
+  main{
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }
