@@ -1,13 +1,12 @@
 /* assets/rsvp.css
-   RSVP-only styling (does NOT modify your global site styles)
+   RSVP-only styling
+   Uses the SAME layout rhythm as style.css (var(--max), var(--pad))
 */
 
 :root{
   --cream: #e7dfd2;
   --burgundy: #7b0015;
-  --burgundy2: #8a0018;
   --ink: #2b1a1e;
-  --rule: rgba(123,0,21,.35);
   --card: rgba(255,255,255,.78);
 }
 
@@ -17,84 +16,27 @@ body.rsvp-theme{
   background: var(--cream);
   color: var(--burgundy);
   font-family: Georgia, serif;
+
+  /* IMPORTANT: do NOT add body padding here.
+     Let the shared navwrap (style.css) and rsvp-wrap control gutters
+     so the page doesn't "jump" when switching tabs. */
 }
 
-/* ✅ Fix: add consistent left/right gutters so content isn't flush-left */
-body.rsvp-theme{
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-/* Keep your sticky topbar working nicely */
-.rsvp-theme .topbar{
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(231,223,210,.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(123,0,21,.18);
-}
-
-/* Nav container */
-.rsvp-theme .navwrap{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 16px;
-}
-
-/* Logo + nav typography to match your theme */
-.rsvp-theme .logo{
-  color: var(--burgundy);
-  text-decoration: none;
-  font-style: italic;
-  font-size: 34px;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.rsvp-theme .nav{
-  display:flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.rsvp-theme .nav a{
-  color: var(--burgundy);
-  text-decoration: none;
-  font-size: 22px;
-  padding: 8px 10px;
-  border-radius: 10px;
-}
-
-.rsvp-theme .nav a:hover{
-  text-decoration: underline;
-  text-underline-offset: 10px;
-  text-decoration-thickness: 2px;
-}
-
-.rsvp-theme .nav a.active{
-  text-decoration: underline;
-  text-underline-offset: 10px;
-  text-decoration-thickness: 2px;
-}
-
-/* Main RSVP wrapper: center + comfortable width */
+/* ---------------------------------
+   Layout wrapper (centers content + adds consistent gutters)
+---------------------------------- */
 .rsvp-wrap{
-  max-width: 980px;
-  margin: 40px auto 70px;
+  max-width: var(--max, 1200px);
+  margin: clamp(26px, 4vw, 44px) auto clamp(52px, 7vw, 80px);
+  padding: 0 var(--pad, 24px);
 }
 
-/* Card-like container (soft, consistent) */
+/* Card-like container */
 .rsvp-card{
   background: var(--card);
   border: 1px solid rgba(123,0,21,.14);
   border-radius: 18px;
-  padding: 28px;
+  padding: clamp(18px, 2.2vw, 28px);
   box-shadow: 0 10px 30px rgba(0,0,0,.06);
 }
 
@@ -102,52 +44,61 @@ body.rsvp-theme{
 .rsvp-card h1{
   margin: 0 0 10px 0;
   font-style: italic;
-  font-weight: 500;
-  font-size: 64px;
+  font-weight: 600;
+  font-size: clamp(40px, 4.2vw, 64px);
   line-height: 1.05;
   color: var(--burgundy);
 }
 
 .rsvp-card p{
   margin: 0 0 18px 0;
-  font-size: 22px;
-  line-height: 1.4;
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.45;
   color: rgba(123,0,21,.85);
 }
 
-/* Inputs/buttons */
-.rsvp-card input[type="email"]{
+/* ---------------------------------
+   Step 1: center the email input block
+---------------------------------- */
+#rsvpStep1{
+  max-width: 520px;
+  margin: 0 auto; /* <-- centers it inside the card */
+}
+
+/* Inputs/buttons (use your existing sizes, but a tad more polished) */
+#rsvpEmail{
   width: 100%;
   padding: 14px 14px;
   font-size: 18px;
   border-radius: 10px;
   border: 1px solid rgba(123,0,21,.25);
-  background: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.92);
   outline: none;
+  box-sizing: border-box;
 }
 
-.rsvp-card input[type="email"]:focus{
+#rsvpEmail:focus{
   border-color: rgba(123,0,21,.55);
   box-shadow: 0 0 0 3px rgba(123,0,21,.12);
 }
 
-.rsvp-card button{
+#rsvpGo{
   width: 100%;
   margin-top: 14px;
   padding: 14px 14px;
   font-size: 18px;
   border-radius: 10px;
   border: 1px solid rgba(123,0,21,.25);
-  background: rgba(123,0,21,.10);
+  background: rgba(123,0,21,.08);
   color: var(--burgundy);
   cursor: pointer;
 }
 
-.rsvp-card button:hover{
-  background: rgba(123,0,21,.14);
+#rsvpGo:hover{
+  background: rgba(123,0,21,.12);
 }
 
-.rsvp-card button:disabled{
+#rsvpGo:disabled{
   opacity: .6;
   cursor: default;
 }
@@ -159,14 +110,16 @@ body.rsvp-theme{
   font-size: 18px;
 }
 
-/* Iframe area */
+/* ---------------------------------
+   Step 2: iframe area centered + fills the card nicely
+---------------------------------- */
 #rsvpStep2{
-  margin-top: 18px;
+  margin-top: 22px;
 }
 
 #rsvpFrame{
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   height: 1600px;
   border: 0;
   display: block;
@@ -176,33 +129,9 @@ body.rsvp-theme{
 
 /* Responsive tuning */
 @media (max-width: 900px){
-  body.rsvp-theme{
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
+  /* Let var(--pad) handle the gutters; just tighten spacing */
   .rsvp-wrap{
-    margin: 28px auto 50px;
-  }
-
-  .rsvp-card{
-    padding: 20px;
-  }
-
-  .rsvp-card h1{
-    font-size: 48px;
-  }
-
-  .rsvp-card p{
-    font-size: 18px;
-  }
-
-  .rsvp-theme .logo{
-    font-size: 28px;
-  }
-
-  .rsvp-theme .nav a{
-    font-size: 18px;
+    margin: 22px auto 50px;
   }
 
   #rsvpFrame{
