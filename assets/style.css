@@ -19,8 +19,9 @@ body{ overflow-x:hidden; }
 .topbar{
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: var(--cream);
+  z-index: 10;
+  background: rgba(231,223,210,.92);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(123,0,21,.18);
 }
 
