@@ -1,0 +1,172 @@
+/* ===========================
+   PAGE THEMES
+=========================== */
+body.burgundy-theme{
+  background: var(--burgundy);
+  color: var(--ink-on-burgundy);
+  font-family: Georgia, serif;
+}
+
+a{ color: var(--link); }
+a:hover{ opacity: .9; }
+
+/* ===========================
+   SCHEDULE HERO (photo integrated)
+   - no overlap
+   - no horizontal scroll
+=========================== */
+.hero-split{
+  width: 100%;
+  background: var(--burgundy);
+  padding: clamp(22px, 3vw, 44px) 0;
+}
+
+.hero-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  display:grid;
+  grid-template-columns: minmax(260px, 420px) 1fr;
+  gap: clamp(18px, 3vw, 44px);
+  align-items: center;
+}
+
+/* Left burgundy block with title */
+.hero-left{
+  min-height: clamp(240px, 30vw, 420px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 18px;
+}
+
+.hero-left .hero-mark{
+  color: var(--ink-on-burgundy);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(38px, 4vw, 64px);
+  line-height: 1.02;
+  text-align:left;
+}
+
+/* Right photo: contained, framed, never overflows */
+.hero-photo{
+  width: 100%;
+  max-width: 100%;
+  border: 12px solid rgba(255,255,255,.92);
+  background: rgba(255,255,255,.92);
+  display:block;
+}
+
+.hero-photo img{
+  width: 100%;
+  height: auto;
+  display:block;
+}
+
+/* Stack on mobile */
+@media (max-width: 900px){
+  .hero-inner{ grid-template-columns: 1fr; }
+  .hero-left{ min-height: auto; justify-content:flex-start; }
+  .hero-left .hero-mark{ text-align:left; }
+  .hero-photo{ border-width: 10px; }
+}
+
+/* ===========================
+   CONTENT WRAPPER
+=========================== */
+.page{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(22px, 3vw, 44px) var(--pad) clamp(48px, 6vw, 80px);
+}
+
+/* Schedule header block */
+.page h1{
+  margin: 0 0 10px 0;
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--h2);
+  color: var(--ink-on-burgundy);
+}
+
+.page .lede{
+  margin: 0 0 10px 0;
+  color: var(--ink-on-burgundy-muted);
+  font-size: var(--p);
+  line-height: 1.55;
+}
+
+.page .lede a{ color: var(--link); text-decoration: underline; }
+
+.floral-divider{
+  width: 100%;
+  height: clamp(80px, 12vw, 140px);
+  margin: clamp(18px, 3vw, 28px) 0 clamp(26px, 4vw, 40px);
+  background-image: url("images/floral-divider.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(900px, 92vw) auto;
+  opacity: .95;
+}
+
+/* ===========================
+   SCHEDULE LIST
+=========================== */
+.schedule{
+  display: grid;
+  gap: clamp(24px, 3.5vw, 44px);
+}
+
+.day{
+  padding-top: clamp(18px, 2.5vw, 28px);
+  border-top: 2px solid var(--rule);
+  display:grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(18px, 3vw, 44px);
+}
+
+.day:first-child{
+  border-top: none;
+  padding-top: 0;
+}
+
+.day h2{
+  margin: 0 0 10px 0;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(26px, 3.2vw, 44px);
+  color: var(--ink-on-burgundy);
+}
+
+.day .dress{
+  margin: 0;
+  color: var(--link);
+  font-size: var(--p-lg);
+  line-height: 1.4;
+}
+
+.events{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.events li{
+  font-size: clamp(18px, 2.1vw, 30px);
+  line-height: 1.35;
+  color: var(--ink-on-burgundy);
+}
+
+.events .time{
+  color: var(--ink-on-burgundy);
+  font-weight: 600;
+}
+
+@media (max-width: 900px){
+  .day{ grid-template-columns: 1fr; }
+  .events li{ font-size: clamp(18px, 2.6vw, 24px); }
+}
