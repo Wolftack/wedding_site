@@ -1,14 +1,18 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Schedule • Luba & Tackin</title>
+  <title>Schedule • Luba &amp; Tackin</title>
+
+  <!-- Keep the shared nav/topbar styling here -->
   <link rel="stylesheet" href="assets/style.css" />
-  <link rel="stylesheet" href="assets/index.css">
+
+  <!-- Page-specific schedule styling -->
+  <link rel="stylesheet" href="assets/index.css" />
 </head>
 
-<body class="burgundy-theme">
+<body class="schedule-page">
   <div class="topbar">
     <div class="navwrap">
       <a class="logo" href="index.html">Luba &amp; Tackin</a>
@@ -22,68 +26,73 @@
     </div>
   </div>
 
-  <!-- HERO (photo is part of layout, no overlap / no sideways scroll) -->
-  <section class="hero-split">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <div class="hero-mark">Luba &amp;<br/>Tackin</div>
+  <!-- HERO -->
+  <section class="sched-hero">
+    <div class="sched-hero-inner">
+      <div class="sched-hero-left">
+        <div class="sched-hero-mark">Luba &amp;<br/>Tackin</div>
       </div>
 
-      <!-- Put your image at: assets/images/schedule_hero.jpg (or change the src) -->
-      <div class="hero-photo">
+      <figure class="sched-hero-photo">
         <img src="assets/images/schedule_hero.png" alt="Luba & Tackin" />
-      </div>
+      </figure>
     </div>
   </section>
 
-  <main class="page">
-    <h1>Schedule</h1>
-    <p class="lede">
-      All wedding events will take place at Ch&acirc;teau Hotel Grand Barrail in Saint-&Eacute;milion.
-      <br/>
-      See <a href="travel.html">here</a> for more info.
-    </p>
+  <!-- CONTENT -->
+  <main class="sched-page">
+    <header class="sched-header">
+      <h1>Schedule</h1>
+      <p>
+        All wedding events will take place at Ch&acirc;teau Hotel Grand Barrail in Saint-&Eacute;milion.
+        <br />
+        See <a href="travel.html">here</a> for more info.
+      </p>
+    </header>
 
-    <section class="schedule">
-      <div class="day">
-        <div>
+    <!-- Floral divider as a page element -->
+    <div class="sched-divider" aria-hidden="true"></div>
+
+    <section class="sched-list">
+      <article class="sched-day">
+        <div class="sched-day-left">
           <h2>Friday, September 4</h2>
-          <p class="dress">Dress code: Cocktail attire</p>
+          <p class="sched-dress">Dress code: Cocktail attire</p>
         </div>
-        <ul class="events">
-          <li><span class="time">Cocktail hour</span> &ndash; 6:00pm</li>
-          <li><span class="time">Dinner</span> &ndash; 7:00pm</li>
+        <ul class="sched-events">
+          <li><span class="t">Cocktail hour</span><span class="time">6:00pm</span></li>
+          <li><span class="t">Dinner</span><span class="time">7:00pm</span></li>
         </ul>
-      </div>
+      </article>
 
-      <div class="day">
-        <div>
+      <article class="sched-day">
+        <div class="sched-day-left">
           <h2>Saturday, September 5</h2>
-          <p class="dress">Dress code: Colorful formal attire</p>
+          <p class="sched-dress">Dress code: Colorful formal attire</p>
         </div>
-        <ul class="events">
-          <li><span class="time">Ceremony</span> &ndash; 4:30pm</li>
-          <li><span class="time">Cocktail hour</span> &ndash; 5:30pm</li>
-          <li><span class="time">Dinner and Reception</span> &ndash; 7:00pm</li>
+        <ul class="sched-events">
+          <li><span class="t">Ceremony</span><span class="time">4:30pm</span></li>
+          <li><span class="t">Cocktail hour</span><span class="time">5:30pm</span></li>
+          <li><span class="t">Dinner and Reception</span><span class="time">7:00pm</span></li>
         </ul>
-      </div>
+      </article>
 
-      <div class="day">
-        <div>
+      <article class="sched-day">
+        <div class="sched-day-left">
           <h2>Sunday, September 6</h2>
-          <p class="dress">Dress code: Casual chic</p>
+          <p class="sched-dress">Dress code: Casual chic</p>
         </div>
-        <ul class="events">
-          <li><span class="time">Brunch</span> &ndash; 11:00am</li>
+        <ul class="sched-events">
+          <li><span class="t">Brunch</span><span class="time">11:00am</span></li>
         </ul>
-      </div>
+      </article>
     </section>
   </main>
 
   <script>
     // highlight active tab
     (function () {
-      const here = location.pathname.split('/').pop() || 'schedule.html';
+      const here = location.pathname.split('/').pop() || 'index.html';
       document.querySelectorAll('.nav a').forEach(a => {
         if (a.getAttribute('href') === here) a.classList.add('active');
       });
