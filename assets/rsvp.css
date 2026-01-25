@@ -1,6 +1,7 @@
 /* assets/rsvp.css
-   RSVP-only styling
-   Uses the SAME layout rhythm as style.css (var(--max), var(--pad))
+   RSVP-only styling (clean + compact)
+   - Keeps shared topbar/nav from assets/style.css
+   - Removes the "huge whitespace" feel on Step 1
 */
 
 :root{
@@ -10,68 +11,58 @@
   --card: rgba(255,255,255,.78);
 }
 
-/* Page background + type */
 body.rsvp-theme{
   margin: 0;
   background: var(--cream);
   color: var(--burgundy);
   font-family: Georgia, serif;
-
-  /* IMPORTANT: do NOT add body padding here.
-     Let the shared navwrap (style.css) and rsvp-wrap control gutters
-     so the page doesn't "jump" when switching tabs. */
 }
 
-/* ---------------------------------
-   Layout wrapper (centers content + adds consistent gutters)
----------------------------------- */
+/* Page wrapper: centered, but not tall */
 .rsvp-wrap{
   max-width: var(--max, 1200px);
-  margin: clamp(26px, 4vw, 44px) auto clamp(52px, 7vw, 80px);
+  margin: 20px auto 56px;              /* <-- less top space */
   padding: 0 var(--pad, 24px);
 }
 
-/* Card-like container */
+/* Card container */
 .rsvp-card{
   background: var(--card);
-  border: 1px solid rgba(123,0,21,.14);
+  border: 1px solid rgba(123,0,21,.12);
   border-radius: 18px;
-  padding: clamp(18px, 2.2vw, 28px);
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  padding: clamp(18px, 2vw, 26px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.05);
 }
 
-/* Headings */
+/* Make Step 1 compact */
 .rsvp-card h1{
-  margin: 0 0 10px 0;
+  margin: 0 0 8px;
   font-style: italic;
   font-weight: 600;
-  font-size: clamp(40px, 4.2vw, 64px);
+  font-size: clamp(30px, 3.2vw, 46px); /* <-- smaller RSVP */
   line-height: 1.05;
-  color: var(--burgundy);
+  letter-spacing: .2px;
 }
 
 .rsvp-card p{
-  margin: 0 0 18px 0;
-  font-size: clamp(16px, 1.6vw, 22px);
+  margin: 0 0 14px;
+  font-size: clamp(14px, 1.5vw, 18px);
   line-height: 1.45;
   color: rgba(123,0,21,.85);
 }
 
-/* ---------------------------------
-   Step 1: center the email input block
----------------------------------- */
+/* Center + narrow the email gate */
 #rsvpStep1{
   max-width: 520px;
-  margin: 0 auto; /* <-- centers it inside the card */
+  margin: 0 auto;
 }
 
-/* Inputs/buttons (use your existing sizes, but a tad more polished) */
 #rsvpEmail{
   width: 100%;
-  padding: 14px 14px;
-  font-size: 18px;
+  padding: 12px 14px;
+  font-size: 16px;
   border-radius: 10px;
-  border: 1px solid rgba(123,0,21,.25);
+  border: 1px solid rgba(123,0,21,.22);
   background: rgba(255,255,255,.92);
   outline: none;
   box-sizing: border-box;
@@ -79,16 +70,16 @@ body.rsvp-theme{
 
 #rsvpEmail:focus{
   border-color: rgba(123,0,21,.55);
-  box-shadow: 0 0 0 3px rgba(123,0,21,.12);
+  box-shadow: 0 0 0 3px rgba(123,0,21,.10);
 }
 
 #rsvpGo{
   width: 100%;
-  margin-top: 14px;
-  padding: 14px 14px;
-  font-size: 18px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  font-size: 16px;
   border-radius: 10px;
-  border: 1px solid rgba(123,0,21,.25);
+  border: 1px solid rgba(123,0,21,.22);
   background: rgba(123,0,21,.08);
   color: var(--burgundy);
   cursor: pointer;
@@ -98,46 +89,33 @@ body.rsvp-theme{
   background: rgba(123,0,21,.12);
 }
 
-#rsvpGo:disabled{
-  opacity: .6;
-  cursor: default;
-}
-
-/* Error message */
 #rsvpErr{
-  margin-top: 12px;
+  margin-top: 10px;
   color: #7b0015;
-  font-size: 18px;
+  font-size: 15px;
 }
 
-/* ---------------------------------
-   Step 2: iframe area centered + fills the card nicely
----------------------------------- */
+/* Step 2: iframe takes over nicely */
 #rsvpStep2{
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 #rsvpFrame{
   width: 100%;
   max-width: 100%;
-  height: 1600px;
+  height: 1400px;          /* initial; your JS will resize via postMessage */
   border: 0;
   display: block;
   margin: 0 auto;
   background: transparent;
 }
 
-/* Responsive tuning */
-/* ===== Mobile iframe sizing fix ===== */
+/* Mobile: slightly tighter card and remove any “dead space” feeling */
 @media (max-width: 700px){
-  #rsvpStep2{
-    margin-top: 16px;
+  .rsvp-wrap{
+    margin: 16px auto 44px;
   }
-
-  #rsvpFrame{
-    width: 100%;
-    max-width: 100%;
-    height: calc(100dvh - 140px); /* viewport minus topbar-ish */
-    min-height: 900px;           /* safety so it doesn't get tiny */
+  .rsvp-card{
+    padding: 16px;
   }
 }
