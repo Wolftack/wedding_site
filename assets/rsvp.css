@@ -128,13 +128,16 @@ body.rsvp-theme{
 }
 
 /* Responsive tuning */
-@media (max-width: 900px){
-  /* Let var(--pad) handle the gutters; just tighten spacing */
-  .rsvp-wrap{
-    margin: 22px auto 50px;
+/* ===== Mobile iframe sizing fix ===== */
+@media (max-width: 700px){
+  #rsvpStep2{
+    margin-top: 16px;
   }
 
   #rsvpFrame{
-    height: 1400px;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100dvh - 140px); /* viewport minus topbar-ish */
+    min-height: 900px;           /* safety so it doesn't get tiny */
   }
 }
