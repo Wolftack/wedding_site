@@ -80,8 +80,9 @@ body.schedule-page .nav a.active{
 .hero-photo{
   width: 100%;
   max-width: 100%;
-  padding: 8px;               /* subtle mat */
-  background: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.92);
+  padding: 2px;               /* was 8px */
+  border-radius: 2px;         /* optional */
   display: block;
 }
 
