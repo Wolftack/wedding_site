@@ -1,172 +1,222 @@
 /* ===========================
-   PAGE THEMES
+   SCHEDULE PAGE (self-contained)
+   - does NOT rely on style.css tokens
+   - only assumes nav/topbar comes from style.css
 =========================== */
-body.burgundy-theme{
-  background: var(--burgundy);
-  color: var(--ink-on-burgundy);
-  font-family: Georgia, serif;
+
+:root{
+  --cream: #e7dfd2;
+  --burgundy: #7b0015;
+  --burgundy2: #8a0018;
+
+  --ink: rgba(255,255,255,.92);
+  --ink-muted: rgba(255,255,255,.78);
+
+  --rule: rgba(255,255,255,.55);
+  --gold: #d8b26a;
+
+  --max: 1200px;
+  --pad: clamp(16px, 3vw, 28px);
 }
 
-a{ color: var(--link); }
-a:hover{ opacity: .9; }
+/* Page base */
+body.schedule-page{
+  margin: 0;
+  background: var(--burgundy2);
+  color: var(--ink);
+  font-family: Georgia, serif;
+  overflow-x: hidden;
+}
+
+body.schedule-page a{
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+body.schedule-page a:hover{ opacity: .92; }
+
+/* Make sure nav highlights */
+body.schedule-page .nav a.active{
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 2px;
+}
 
 /* ===========================
-   SCHEDULE HERO (photo integrated)
-   - no overlap
-   - no horizontal scroll
+   HERO
 =========================== */
-.hero-split{
-  width: 100%;
-  background: var(--burgundy);
+
+.sched-hero{
+  background: var(--burgundy2);
   padding: clamp(22px, 3vw, 44px) 0;
 }
 
-.hero-inner{
+.sched-hero-inner{
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--pad);
-  display:grid;
+
+  display: grid;
   grid-template-columns: minmax(260px, 420px) 1fr;
   gap: clamp(18px, 3vw, 44px);
   align-items: center;
 }
 
-/* Left burgundy block with title */
-.hero-left{
-  min-height: clamp(240px, 30vw, 420px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding: 18px;
+.sched-hero-left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(18px, 2.5vw, 28px);
 }
 
-.hero-left .hero-mark{
-  color: var(--ink-on-burgundy);
+.sched-hero-mark{
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(38px, 4vw, 64px);
+  font-size: clamp(44px, 4.6vw, 76px);
   line-height: 1.02;
-  text-align:left;
+  color: var(--ink);
 }
 
-/* Right photo: contained, framed, never overflows */
-.hero-photo{
+.sched-hero-photo{
+  margin: 0;
   width: 100%;
   max-width: 100%;
-  border: 12px solid rgba(255,255,255,.92);
+  border: clamp(10px, 1.3vw, 14px) solid rgba(255,255,255,.92);
   background: rgba(255,255,255,.92);
-  display:block;
 }
 
-.hero-photo img{
+.sched-hero-photo img{
+  display: block;
   width: 100%;
   height: auto;
-  display:block;
 }
 
-/* Stack on mobile */
+/* Mobile: stack hero */
 @media (max-width: 900px){
-  .hero-inner{ grid-template-columns: 1fr; }
-  .hero-left{ min-height: auto; justify-content:flex-start; }
-  .hero-left .hero-mark{ text-align:left; }
-  .hero-photo{ border-width: 10px; }
+  .sched-hero-inner{
+    grid-template-columns: 1fr;
+  }
+  .sched-hero-left{
+    justify-content: flex-start;
+    padding-bottom: 6px;
+  }
 }
 
 /* ===========================
    CONTENT WRAPPER
 =========================== */
-.page{
+
+.sched-page{
   max-width: var(--max);
   margin: 0 auto;
-  padding: clamp(22px, 3vw, 44px) var(--pad) clamp(48px, 6vw, 80px);
+  padding: clamp(18px, 2.8vw, 40px) var(--pad) clamp(48px, 6vw, 80px);
 }
 
-/* Schedule header block */
-.page h1{
-  margin: 0 0 10px 0;
+.sched-header h1{
+  margin: 0 0 10px;
   font-style: italic;
   font-weight: 500;
-  font-size: var(--h2);
-  color: var(--ink-on-burgundy);
+  font-size: clamp(42px, 4vw, 64px);
+  line-height: 1.05;
+  color: var(--ink);
 }
 
-.page .lede{
-  margin: 0 0 10px 0;
-  color: var(--ink-on-burgundy-muted);
-  font-size: var(--p);
+.sched-header p{
+  margin: 0;
+  max-width: 880px;
+  font-size: clamp(16px, 1.6vw, 22px);
   line-height: 1.55;
+  color: var(--ink-muted);
 }
 
-.page .lede a{ color: var(--link); text-decoration: underline; }
-
-.floral-divider{
+/* Floral divider as an integrated element */
+.sched-divider{
   width: 100%;
-  height: clamp(80px, 12vw, 140px);
-  margin: clamp(18px, 3vw, 28px) 0 clamp(26px, 4vw, 40px);
+  height: clamp(90px, 12vw, 150px);
+  margin: clamp(18px, 3vw, 28px) 0 clamp(22px, 3.5vw, 36px);
+
   background-image: url("images/floral-divider.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: min(900px, 92vw) auto;
+  background-size: min(920px, 92vw) auto;
   opacity: .95;
 }
 
 /* ===========================
    SCHEDULE LIST
 =========================== */
-.schedule{
+
+.sched-list{
   display: grid;
   gap: clamp(24px, 3.5vw, 44px);
 }
 
-.day{
+.sched-day{
   padding-top: clamp(18px, 2.5vw, 28px);
   border-top: 2px solid var(--rule);
-  display:grid;
+
+  display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: clamp(18px, 3vw, 44px);
+  align-items: start;
 }
 
-.day:first-child{
+.sched-day:first-child{
   border-top: none;
   padding-top: 0;
 }
 
-.day h2{
-  margin: 0 0 10px 0;
+.sched-day h2{
+  margin: 0 0 10px;
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(26px, 3.2vw, 44px);
-  color: var(--ink-on-burgundy);
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.1;
+  color: var(--ink);
 }
 
-.day .dress{
+.sched-dress{
   margin: 0;
-  color: var(--link);
-  font-size: var(--p-lg);
-  line-height: 1.4;
+  color: var(--gold);
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.35;
 }
 
-.events{
+/* Events list: two-column title/time like your reference */
+.sched-events{
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
-  display:flex;
-  flex-direction: column;
-  gap: 10px;
+
+  display: grid;
+  gap: 12px;
 }
 
-.events li{
-  font-size: clamp(18px, 2.1vw, 30px);
-  line-height: 1.35;
-  color: var(--ink-on-burgundy);
+.sched-events li{
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+
+  font-size: clamp(18px, 2.2vw, 34px);
+  line-height: 1.25;
+  color: var(--ink);
 }
 
-.events .time{
-  color: var(--ink-on-burgundy);
+.sched-events .t{
   font-weight: 600;
 }
 
+.sched-events .time{
+  white-space: nowrap;
+}
+
+/* Mobile: stack schedule */
 @media (max-width: 900px){
-  .day{ grid-template-columns: 1fr; }
-  .events li{ font-size: clamp(18px, 2.6vw, 24px); }
+  .sched-day{
+    grid-template-columns: 1fr;
+  }
+
+  .sched-events li{
+    font-size: clamp(18px, 2.8vw, 26px);
+  }
 }
