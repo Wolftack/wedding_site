@@ -77,19 +77,20 @@ body.schedule-page .nav a.active{
   color: var(--ink);
 }
 
-.sched-hero-photo{
-  margin: 0;
+.hero-photo{
   width: 100%;
   max-width: 100%;
-  border: clamp(10px, 1.3vw, 14px) solid rgba(255,255,255,.92);
-  background: rgba(255,255,255,.92);
+  padding: 8px;               /* subtle mat */
+  background: rgba(255,255,255,.9);
+  display: block;
 }
 
-.sched-hero-photo img{
-  display: block;
+.hero-photo img{
   width: 100%;
   height: auto;
+  display: block;
 }
+
 
 /* Mobile: stack hero */
 @media (max-width: 900px){
