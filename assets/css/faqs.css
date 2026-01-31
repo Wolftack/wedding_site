@@ -1,9 +1,3 @@
-:root{
-  --cream: #e7dfd2;
-  --burgundy: #7b0015;
-  --rule: rgba(231,223,210,.70);
-}
-
 body.faqs-theme{
   background: var(--burgundy);
   color: #fff;
@@ -11,90 +5,64 @@ body.faqs-theme{
 
 /* Layout */
 .faqs-wrap{
-  max-width: 1200px;
+  max-width: var(--max);
   margin: 0 auto;
-  padding: 56px 18px 90px;
+  padding: clamp(28px, 5vw, 56px) var(--pad) clamp(60px, 7vw, 90px);
 }
 
 .faqs-grid{
   display: grid;
   grid-template-columns: 1fr 1.55fr;
-  gap: 110px;
+  gap: clamp(22px, 7vw, 110px);
   align-items: start;
 }
 
-/* Left title (desktop) */
+/* Left title */
 .faqs-title{
   margin: 0;
   font-family: Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 86px;
+  font-size: var(--h1);
   line-height: 1.05;
   color: rgba(255,255,255,.96);
 }
 
 /* Blocks */
 .faq{
-  padding: 0 0 34px 0;
-  border-bottom: 2px solid var(--rule);
-  margin-bottom: 34px;
+  padding: 0 0 var(--s5, 2rem) 0;
+  border-bottom: 2px solid var(--rule-light);
+  margin-bottom: var(--s5, 2rem);
 }
 
-/* FAQ typography (desktop) */
-.faqs-theme .faq-q{
-  margin: 0 0 16px 0;
+.faq-q{
+  margin: 0 0 12px 0;
   font-family: Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 46px;
+  font-size: var(--h3);
   line-height: 1.2;
   color: rgba(255,255,255,.95);
 }
 
-.faqs-theme .faq-a{
+.faq-a{
   margin: 0;
   font-family: Georgia, serif;
-  font-size: 30px;
-  line-height: 1.45;
+  font-size: var(--lead);
+  line-height: 1.55;
   color: rgba(255,255,255,.92);
 }
 
-/* =========================
-   MOBILE (make it like Travel)
-========================= */
+/* Mobile: collapse to one column and hide giant title */
 @media (max-width: 900px){
-
-  /* Make page feel consistent */
-  .faqs-wrap{
-    padding: 28px 16px 70px;
-  }
-
-  /* Collapse to one column */
   .faqs-grid{
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 14px;
   }
-
-  /* Hide the left “FAQs” block on mobile (this is the correct class) */
-  .faqs-title{
-    display: none;
-  }
-
-  /* Keep questions readable */
-  .faqs-theme .faq-q{
-    font-size: 28px;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
-
-  .faqs-theme .faq-a{
-    font-size: 18px;
-    line-height: 1.6;
-  }
+  .faqs-title{ display:none; }
 
   .faq{
-    padding-bottom: 22px;
-    margin-bottom: 22px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
   }
 }

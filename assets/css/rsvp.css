@@ -1,47 +1,29 @@
-:root{
-  --cream: #e7dfd2;
-  --burgundy: #7b0015;
-  --ink: #2b1a1e;
-  --card: rgba(255,255,255,.78);
-}
-
 body.rsvp-theme{
-  margin: 0;
   background: var(--cream);
   color: var(--burgundy);
   font-family: Georgia, serif;
 }
 
-/* Page wrapper: centered, but not tall */
+/* centered wrapper */
 .rsvp-wrap{
-  max-width: var(--max, 1200px);
-  margin: 20px auto 56px;              /* <-- less top space */
-  padding: 0 var(--pad, 24px);
+  max-width: var(--max);
+  margin: 20px auto 56px;
+  padding: 0 var(--pad);
 }
 
-/* Card container */
+/* card */
 .rsvp-card{
-  background: var(--card);
+  background: rgba(255,255,255,.78);
   border: 1px solid rgba(123,0,21,.12);
   border-radius: 18px;
-  padding: clamp(18px, 2vw, 26px);
+  padding: clamp(16px, 2vw, 26px);
   box-shadow: 0 10px 28px rgba(0,0,0,.05);
-}
-
-/* Make Step 1 compact */
-.rsvp-card h1{
-  margin: 0 0 8px;
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(30px, 3.2vw, 46px); /* <-- smaller RSVP */
-  line-height: 1.05;
-  letter-spacing: .2px;
 }
 
 .rsvp-card p{
   margin: 0 0 14px;
-  font-size: clamp(14px, 1.5vw, 18px);
-  line-height: 1.45;
+  font-size: 1rem;
+  line-height: 1.5;
   color: rgba(123,0,21,.85);
 }
 
@@ -50,7 +32,7 @@ body.rsvp-theme{
   margin: 0 auto 14px;
 }
 
-/* Center + narrow the email gate */
+/* email gate */
 #rsvpStep1{
   max-width: 520px;
   margin: 0 auto;
@@ -59,12 +41,11 @@ body.rsvp-theme{
 #rsvpEmail{
   width: 100%;
   padding: 12px 14px;
-  font-size: 16px;
+  font-size: 1rem;
   border-radius: 10px;
   border: 1px solid rgba(123,0,21,.22);
   background: rgba(255,255,255,.92);
   outline: none;
-  box-sizing: border-box;
 }
 
 #rsvpEmail:focus{
@@ -76,7 +57,7 @@ body.rsvp-theme{
   width: 100%;
   margin-top: 12px;
   padding: 12px 14px;
-  font-size: 16px;
+  font-size: 1rem;
   border-radius: 10px;
   border: 1px solid rgba(123,0,21,.22);
   background: rgba(123,0,21,.08);
@@ -90,31 +71,23 @@ body.rsvp-theme{
 
 #rsvpErr{
   margin-top: 10px;
-  color: #7b0015;
-  font-size: 15px;
+  color: var(--burgundy);
+  font-size: 0.95rem;
 }
 
-/* Step 2: iframe takes over nicely */
-#rsvpStep2{
-  margin-top: 18px;
-}
+/* iframe step */
+#rsvpStep2{ margin-top: 18px; }
 
 #rsvpFrame{
   width: 100%;
-  max-width: 100%;
-  height: 1400px;          /* initial; your JS will resize via postMessage */
+  height: 1400px; /* JS will resize */
   border: 0;
   display: block;
   margin: 0 auto;
   background: transparent;
 }
 
-/* Mobile: slightly tighter card and remove any “dead space” feeling */
 @media (max-width: 700px){
-  .rsvp-wrap{
-    margin: 16px auto 44px;
-  }
-  .rsvp-card{
-    padding: 16px;
-  }
+  .rsvp-wrap{ margin: 16px auto 44px; }
+  .rsvp-card{ padding: 16px; }
 }

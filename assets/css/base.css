@@ -1,0 +1,32 @@
+:root{
+  /* Core brand */
+  --cream: #e7dfd2;
+  --burgundy: #7b0015;
+  --burgundy2: #8a0018;
+  --gold: #d8b26a;
+
+  /* Ink + rules */
+  --ink-dark: #2b1a1e;
+  --ink: rgba(255,255,255,.92);
+  --ink-muted: rgba(255,255,255,.78);
+  --rule-light: rgba(231,223,210,.70);
+  --rule-white: rgba(255,255,255,.55);
+
+  /* Layout */
+  --max: 1200px;
+  --pad: clamp(16px, 3vw, 28px);
+
+  /* Type: tune these to shrink/grow the whole site */
+  --fs-base: clamp(14px, 0.5vw + 12px, 16px);
+  --lh-body: 1.55;
+
+  --h1: clamp(2.0rem, 1.6vw + 1.4rem, 3.2rem);
+  --h2: clamp(1.4rem, 1.0vw + 1.2rem, 2.2rem);
+  --h3: clamp(1.15rem, 0.6vw + 1.05rem, 1.7rem);
+  --lead: clamp(1.0rem, 0.5vw + 0.95rem, 1.25rem);
+}
+
+*{ box-sizing:border-box; }
+html{ font-size: var(--fs-base); }
+body{ margin:0; line-height: var(--lh-body); overflow-x:hidden; }
+img{ max-width:100%; height:auto; display:block; }
