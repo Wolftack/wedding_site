@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Travel • Luba & Tackin</title>
 
-  <link rel="stylesheet" href="assets/style.css">
-  <link rel="stylesheet" href="assets/travel.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/travel.css">
 </head>
 
 <body class="travel-theme">
@@ -66,15 +66,6 @@
       </div>
     </div>
   </section>
-
-  <script>
-    // highlight active tab
-    (function () {
-      const here = location.pathname.split('/').pop() || 'index.html';
-      document.querySelectorAll('.nav a').forEach(a => {
-        if (a.getAttribute('href') === here) a.classList.add('active');
-      });
-    })();
-  </script>
+  <script defer src="assets/js/app.js"></script>
 </body>
 </html>
