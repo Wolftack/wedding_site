@@ -89,14 +89,6 @@
     </section>
   </main>
 
-  <script>
-    // highlight active tab
-    (function () {
-      const here = location.pathname.split('/').pop() || 'index.html';
-      document.querySelectorAll('.nav a').forEach(a => {
-        if (a.getAttribute('href') === here) a.classList.add('active');
-      });
-    })();
-  </script>
+  <script defer src="assets/app.js"></script>
 </body>
 </html>
