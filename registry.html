@@ -1,33 +1,31 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Registry • Luba & Tackin</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Registry • Luba &amp; Tackin</title>
 
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/registry.css">
+  <!-- Global first -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Page-specific -->
+  <link rel="stylesheet" href="assets/css/registry.css" />
+
+  <!-- Shared JS -->
+  <script defer src="assets/js/includes.js"></script>
+  <script defer src="assets/js/app.js"></script>
 </head>
 
 <body class="registry-theme">
-  <div class="topbar">
-    <div class="navwrap">
-      <a class="logo" href="index.html">Luba &amp; Tackin</a>
-      <nav class="nav">
-        <a href="index.html">Schedule</a>
-        <a href="travel.html">Travel</a>
-        <a href="faqs.html">FAQs</a>
-        <a href="rsvp.html">RSVP</a>
-        <a href="registry.html">Registry</a>
-      </nav>
-    </div>
-  </div>
+  <!-- Injected nav -->
+  <div id="site-nav"></div>
 
   <main class="registry-wrap">
     <h1 class="registry-title">Registry</h1>
     <p class="registry-sub">Making our list and checking it twice…</p>
 
-    <hr class="registry-rule">
+    <hr class="registry-rule" />
 
     <img
       class="registry-img"
@@ -35,8 +33,5 @@
       alt="A very French Santa enjoying a celebratory drink"
     />
   </main>
-
-  <script defer src="assets/js/app.js"></script>
 </body>
 </html>
-
