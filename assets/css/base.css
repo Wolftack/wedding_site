@@ -24,6 +24,10 @@
   --h2: clamp(1.4rem, 1.0vw + 1.2rem, 2.2rem);
   --h3: clamp(1.15rem, 0.6vw + 1.05rem, 1.7rem);
   --lead: clamp(1.0rem, 0.5vw + 0.95rem, 1.25rem);
+
+  /* dividers */
+  --rule: rgba(255,255,255,.55);
+
 }
 
 *{ box-sizing:border-box; }
