@@ -58,21 +58,25 @@ body{ overflow-x:hidden; }
 
 @media (max-width: 520px){
   .navwrap{
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 14px;
+  }
+
+  .logo{
+    text-align: center;
   }
 
   .nav{
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     width: 100%;
-    gap: 16px;
-    padding-bottom: 6px;
+    justify-content: center;
+    gap: 14px 18px;     /* row gap, column gap */
   }
 
   .nav a{
-    white-space: nowrap;
-    flex: 0 0 auto;
+    padding: 6px 4px;
   }
 }
 
