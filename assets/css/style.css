@@ -55,3 +55,24 @@ body{ overflow-x:hidden; }
 @media (max-width: 720px){
   .navwrap{ align-items:flex-start; gap:10px; }
 }
+
+@media (max-width: 520px){
+  .navwrap{
+    align-items: flex-start;
+  }
+
+  .nav{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    gap: 16px;
+    padding-bottom: 6px;
+  }
+
+  .nav a{
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+}
+
