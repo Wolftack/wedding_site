@@ -105,6 +105,14 @@ body.stay-theme{
   font-size: 1rem;
 }
 
+.muted-link{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 600;
+}
+.muted-link:hover{ opacity: .9; }
+
 .chev{
   width: 10px;
   height: 10px;
