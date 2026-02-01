@@ -1,0 +1,68 @@
+body.faqs-theme{
+  background: var(--burgundy);
+  color: #fff;
+}
+
+/* Layout */
+.faqs-wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 56px) var(--pad) clamp(60px, 7vw, 90px);
+}
+
+.faqs-grid{
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) 1fr;
+  gap: clamp(18px, 4vw, 48px);
+  align-items: start;
+}
+
+/* Left title */
+.faqs-title{
+  margin: 0;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--h1);
+  line-height: 1.05;
+  color: rgba(255,255,255,.96);
+}
+
+/* Blocks */
+.faq{
+  padding: 0 0 var(--s5, 2rem) 0;
+  border-bottom: 2px solid var(--rule-light);
+  margin-bottom: var(--s5, 2rem);
+}
+
+.faq-q{
+  margin: 0 0 12px 0;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--h3);
+  line-height: 1.2;
+  color: rgba(255,255,255,.95);
+}
+
+.faq-a{
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: var(--lead);
+  line-height: 1.55;
+  color: rgba(255,255,255,.92);
+}
+
+/* Mobile: collapse to one column and hide giant title */
+@media (max-width: 900px){
+  .faqs-grid{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .faqs-title{ display:none; }
+
+  .faq{
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+  }
+}

@@ -1,30 +1,24 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>RSVP • Luba & Tackin</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <link rel="stylesheet" href="assets/rsvp.css">
+
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/rsvp.css" />
+  <script defer src="assets/js/includes.js"></script>
+  <script defer src="assets/js/app.js"></script>
+  <script defer src="assets/js/rsvp.js"></script>
 </head>
 
 <body class="rsvp-theme">
-  <div class="topbar">
-    <div class="navwrap">
-      <a class="logo" href="index.html">Luba & Tackin</a>
-      <nav class="nav">
-        <a href="index.html">Schedule</a>
-        <a href="travel.html">Travel</a>
-        <a href="faqs.html">FAQs</a>
-        <a href="rsvp.html">RSVP</a>
-        <a href="registry.html">Registry</a>
-      </nav>
-    </div>
-  </div>
+  <div id="site-nav"></div>
 
   <div class="rsvp-wrap">
     <section class="rsvp-card">
-      <p>Enter your email address to access your RSVP form.</p>
+      <p class="rsvp-intro">Enter your email address to access your RSVP form.</p>
 
       <div id="rsvpStep1">
         <input
@@ -48,75 +42,5 @@
       </div>
     </section>
   </div>
-
-  <script>
-    // highlight active tab
-    (function () {
-      const here = location.pathname.split('/').pop() || 'index.html';
-      document.querySelectorAll('.nav a').forEach(a => {
-        if (a.getAttribute('href') === here) a.classList.add('active');
-      });
-    })();
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const APP_URL = "https://script.google.com/macros/s/AKfycbxYG7tdqDCiu2dJcoYq2_THnlvdb6XekeHpmFhXX_ZN4Itho2NxYMbT8NeoHieG6AQk/exec";
-
-      const emailEl = document.getElementById('rsvpEmail');
-      const goBtn = document.getElementById('rsvpGo');
-      const errEl = document.getElementById('rsvpErr');
-      const step1 = document.getElementById('rsvpStep1');
-      const step2 = document.getElementById('rsvpStep2');
-      const frame = document.getElementById('rsvpFrame');
-
-      function clamp(n, min, max) {
-        return Math.max(min, Math.min(max, n));
-      }
-
-      function setFrameHeight(h) {
-        const height = clamp(Number(h) || 0, 900, 6000);
-        if (!height) return;
-        frame.style.height = height + 'px';
-      }
-
-      // Listen for height messages from the embedded Google Apps Script page
-      window.addEventListener('message', (event) => {
-        // Security: only accept messages from script.google.com
-        if (event.origin !== 'https://script.google.com') return;
-
-        const data = event.data || {};
-        if (data.type === 'RSVP_IFRAME_HEIGHT' && data.height) {
-          setFrameHeight(data.height);
-        }
-      });
-
-      function go() {
-        const email = (emailEl.value || '').trim();
-
-        if (!email) {
-          errEl.style.display = 'block';
-          errEl.textContent = 'Please enter your email address.';
-          return;
-        }
-
-        errEl.style.display = 'none';
-
-        // Reset to a reasonable height immediately (prevents “tiny iframe” on mobile while loading)
-        frame.style.height = '1400px';
-
-        frame.src = APP_URL + "?page=rsvp&email=" + encodeURIComponent(email);
-
-        step1.style.display = 'none';
-        step2.style.display = 'block';
-        const intro = document.querySelector('.rsvp-card > p');
-        if (intro) intro.style.display = 'none';
-        step2.scrollIntoView({ behavior: 'smooth' });
-      }
-
-      goBtn.addEventListener('click', go);
-      emailEl.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') go();
-      });
-    });
-  </script>
 </body>
 </html>

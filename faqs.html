@@ -1,27 +1,18 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>FAQs • Luba & Tackin</title>
-
-  <link rel="stylesheet" href="assets/style.css">
-  <link rel="stylesheet" href="assets/faqs.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAQs • Luba &amp; Tackin</title>
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/faqs.css" />
+  <script defer src="assets/js/includes.js"></script>
+  <script defer src="assets/js/app.js"></script>
 </head>
 
 <body class="faqs-theme">
-  <div class="topbar">
-    <div class="navwrap">
-      <a class="logo" href="index.html">Luba &amp; Tackin</a>
-      <nav class="nav">
-        <a href="index.html">Schedule</a>
-        <a href="travel.html">Travel</a>
-        <a href="faqs.html">FAQs</a>
-        <a href="rsvp.html">RSVP</a>
-        <a href="registry.html">Registry</a>
-      </nav>
-    </div>
-  </div>
+  <div id="site-nav"></div>
 
   <main class="faqs-wrap">
     <div class="faqs-grid">
@@ -31,10 +22,10 @@
         <section class="faq">
           <h2 class="faq-q">What is the dress code for your wedding?</h2>
           <p class="faq-a">
-            <strong>Friday, September 4 </strong> — Our welcome day dress code will be cocktail attire.<br><br>
+            <strong>Friday, September 4</strong> — Our welcome day dress code will be cocktail attire.<br><br>
             <strong>Saturday, September 5</strong> — Our wedding day will be colorful formal. Think bold &amp; vibrant colors,
             interesting patterns, and creative outfits!<br><br>
-            <strong>Sunday, September 6</strong>  — Farewell brunch is casual chic attire.
+            <strong>Sunday, September 6</strong> — Farewell brunch is casual chic attire.
           </p>
         </section>
 
@@ -61,15 +52,5 @@
       </div>
     </div>
   </main>
-
-  <script>
-    // highlight active tab
-    (function () {
-      const here = location.pathname.split('/').pop() || 'index.html';
-      document.querySelectorAll('.nav a').forEach(a => {
-        if (a.getAttribute('href') === here) a.classList.add('active');
-      });
-    })();
-  </script>
 </body>
 </html>
