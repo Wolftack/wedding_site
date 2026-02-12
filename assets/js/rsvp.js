@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   const APP_URL =
-    "https://script.google.com/macros/s/AKfycbzMNxzlSm9JjrGwQnB1ffKWsArzD_mC3L-pznjGiSs_yj4pDwHDx0TEZwEjOH5sI1Id/exec";
+    "https://script.google.com/macros/s/AKfycbxQgjRg9hkukWbE_BogSx6-xlxWGRuKalIki827khU01rBaZOt1NGKpOdEkCoi_qjVv/exec";
 
   const emailEl = document.getElementById("rsvpEmail");
   const goBtn = document.getElementById("rsvpGo");
