@@ -28,15 +28,21 @@ body.registry-theme{
   color: rgba(255,255,255,.92);
 }
 
-.registry-sub a,
-.registry-sub a:visited,
-.registry-sub a:hover,
-.registry-sub a:active {
-  color: rgba(255,255,255,.92);
+body.registry-theme .registry-wrap .registry-sub a,
+body.registry-theme .registry-wrap .registry-sub a:link,
+body.registry-theme .registry-wrap .registry-sub a:visited,
+body.registry-theme .registry-wrap .registry-sub a:hover,
+body.registry-theme .registry-wrap .registry-sub a:active,
+body.registry-theme .registry-wrap .registry-sub a:focus{
+  color: rgba(255,255,255,.92) !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,.92) !important;
+  text-underline-offset: 3px;
 }
 
-.registry-sub a:hover {
-  text-decoration: underline;
+body.registry-theme .registry-wrap .registry-sub a:hover{
+  color: #fff !important;
+  text-decoration-color: #fff !important;
 }
 
 .registry-rule{
