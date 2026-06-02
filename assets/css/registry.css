@@ -28,6 +28,17 @@ body.registry-theme{
   color: rgba(255,255,255,.92);
 }
 
+.registry-sub a,
+.registry-sub a:visited,
+.registry-sub a:hover,
+.registry-sub a:active {
+  color: rgba(255,255,255,.92);
+}
+
+.registry-sub a:hover {
+  text-decoration: underline;
+}
+
 .registry-rule{
   border: 0;
   height: 2px;
